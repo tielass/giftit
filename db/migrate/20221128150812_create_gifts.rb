@@ -6,6 +6,7 @@ class CreateGifts < ActiveRecord::Migration[7.0]
       t.string :photo
       t.text :description
       t.string :link
+      t.string :category
 
       t.timestamps
     end
