@@ -1,12 +1,11 @@
 <footer class="fixed-bottom">
-
     <%= link_to "#", class:"pt-1" do %>
       <div class="footer-box">
       <%= image_tag "home.svg" %>
       <p>Home</p>
       </div>
     <% end %>
-    <%= link_to "#", class:"pt-1 ps-1" do %>
+    <%= link_to new_event_path, class:"pt-1 ps-1" do %>
       <div class="footer-box">
       <%= image_tag "gift.svg" %>
       <p>Gift</p>
@@ -18,11 +17,10 @@
       <p>Chat</p>
       </div>
     <% end %>
-    <%= link_to "#", class:"pt-1" do %>
+    <%= link_to events_path, class:"pt-1" do %>
       <div class="footer-box">
       <%= image_tag "calendar.svg" %>
       <p>Calendar</p>
       </div>
     <% end %>
-
 </footer>
