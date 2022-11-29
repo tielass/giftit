@@ -1,0 +1,16 @@
+<div class="container p-4 mt-3">
+  <div class="d-flex justify-content-center"><h1> Add a new event </h1></div>
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.input :name, placeholder: 'Steves birthday' %>
+    <%= f.input :date %>
+    <%= f.input :category, placeholder: 'sex, drugs & rock`n`roll ' %>
+    <%= f.input :price, placeholder: '$ 15' %>
+    <%= f.input :photo, as: :file, label: "Add your fan Image"%>
+    <div class="row">
+      <div class="text-center">
+        <div class="col"><%= f.submit class: "btn btn-primary" %></div>
+        <div class="col"><%= link_to "All Events", events_path(@events) %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
