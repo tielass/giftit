@@ -1,0 +1,27 @@
+  <div class="d-flex justify-content-center flex-nowrap">
+    <div>
+        <h3>X-mas</h3>
+
+
+    <h4><%= @event.name %></h4>
+    <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team">
+    <div class="card-product">
+      <div class="card-product-infos">
+      <p> <strong><%= @event.date %></strong>  </p>
+      <p> Your hobbies: <%= @event.category %> </p>
+      <p> saved gifts (6) </p>
+      <p> members: Paul, Eoin</p>
+      <p> share </p>
+      <p> price: <%= @event.price %> </p>
+      <h4> Gift Suggestions<h4>
+
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
+        </div>
+
+      </div>
+    </div>
+
+
+        <h3><%= link_to "All events", events_path %> </h3>
+    </div>
+  </div>

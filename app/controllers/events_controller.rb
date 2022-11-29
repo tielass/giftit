@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new(event_params)
+    @event = Event.new
   end
 
   def create
@@ -22,7 +22,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def updated
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to even_path(@event)
   end
 
   def destroy
@@ -34,11 +41,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(
-      :name,
-      :date,
-      :category,
-      :price,
-      :photo)
+    params.require(:event).permit(:name, :date, :category, :price, :photo)
   end
 end
