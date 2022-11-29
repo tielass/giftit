@@ -1,6 +1,12 @@
 .event {
+  font-size: 20px;
+}
+.event h1, h2, h3 {
+  text-align: center;
   justify-content: center;
-  align-items: center;
 }
 
+.event body > img {
+  align-items: center;
+}
 // EVENT Show page

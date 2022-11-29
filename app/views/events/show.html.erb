@@ -1,27 +1,51 @@
-  <div class="d-flex justify-content-center flex-nowrap">
-    <div>
-        <h3>X-mas</h3>
-
-
-    <h4><%= @event.name %></h4>
-    <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team">
+<div class="d-flex justify-content-center flex-nowrap m-5">
+  <div class="event">
+    <h1><%= @event.name %></h1>
+      <div class="center">
+        <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team">
+      </div>
     <div class="card-product">
       <div class="card-product-infos">
       <p> <strong><%= @event.date %></strong>  </p>
-      <p> Your hobbies: <%= @event.category %> </p>
+      <p> Hobbies:
+        <div class="hobbies">
+          <%= @event.category %>
+        </div>
+        <div class="hobbies">
+          <%= @event.category %>
+        </div>
+        <div class="hobbies">
+          <%= @event.category %>
+        </div>
+        <div class="hobbies">
+          <%= @event.category %>
+        </div>
+        <div class="hobbies">
+          <%= @event.category %>
+        </div>
+      </p>
+
       <p> saved gifts (6) </p>
       <p> members: Paul, Eoin</p>
       <p> share </p>
-      <p> price: <%= @event.price %> </p>
-      <h4> Gift Suggestions<h4>
 
+      <p> price: <%= @event.price %> </p>
+      <div class="slidecontainer">
+        <input type="range" min="10" max="1000" value="100" class="slider" id="myRange">
+      </div>
+
+      <h3> Gift Suggestions<h3>
+      <div class="cards">
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
+          </div>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
+          </div>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
+          </div>
         </div>
 
       </div>
     </div>
-
-
-        <h3><%= link_to "All events", events_path %> </h3>
+      <h3><%= link_to "All events", events_path %> </h3>
     </div>
   </div>
