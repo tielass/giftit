@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
     @events = Event.all
   end
 
@@ -18,7 +21,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      render 'pages/events', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
