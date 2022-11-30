@@ -14,7 +14,14 @@
           <%# <div class="show-hobbies"> %>
             <%# <%= @event.hobbies %>
           <%# </div> %>
+
           <% @event.tag_list.each do |tag| %>
+            <div class="show-hobbies">
+              <%= tag %>
+            </div>
+          <% end %>
+
+          <% @event.tag_list.map do |tag|%>
             <div class="show-hobbies">
               <%= tag %>
             </div>
@@ -40,15 +47,19 @@
         </div>
 
 
-
         <div> Members: Paul, Eoin </div>
         <div class="cards"> Share </div>
-
-        <div> Price: <%= @event.price %> </p>
-          <div class="slidecontainer">
-            <input type="range" min="10" max="1000" value="100" class="slider" id="myRange">
-          </div>
-        </div>
+        <div class="price_selector"> Price: <%= @event.price %> </p>
+        <label for="temp">Price</label><br />
+        <input type="range" id="temp" name="temp" list="tickmarks" />
+        <datalist id="tickmarks">
+          <option value="0" label="0"></option>
+          <option value="50" label="50"></option>
+          <option value="100" label="100"></option>
+          <option value="150" label="150"></option>
+          <option value="200" label="200"></option>
+          <option value="500" label="500"></option>
+        </datalist>
 
         <h3> Gift Suggestions<h3>
         <div class="cards d-flex justify-content-center">
