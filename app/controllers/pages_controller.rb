@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def index
   end
+
+  def profile
+    @events = Event.all.where(user: current_user).order(start_time: :asc)
+  end
 end

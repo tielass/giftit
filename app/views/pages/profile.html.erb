@@ -1,0 +1,30 @@
+
+<div class="pnav d-flex">
+  <h3>Profile</h3>
+  <div class="icons">
+    <i class="fa-solid fa-pen"></i>
+    <i class="fa-solid fa-gear"></i>
+  </div>
+</div>
+
+<section class="infosection w-100">
+<img id="pimg" class="mt-5" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile picture of the current user">
+  <div class="pinfos mt-4">
+    <p>Username?</p>
+    <p><%= current_user.email %></p>
+  </div>
+</section>
+
+
+<section>
+<h2>Your events</h2>
+  <%= @events.each do |event| %>
+    <div class="yourevents d-flex">
+      <div class="eventphoto"><%= event.photo %></div>
+      <div class="youreventinfo">
+        <%= event.name %>
+        <%= event.start_time %>
+      </div>
+    </div>
+    <% end %>
+</section>

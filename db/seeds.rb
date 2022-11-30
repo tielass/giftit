@@ -1,54 +1,8 @@
-# require 'json'
-
-# puts 'Cleaning DB...'
-# Gift.destroy_all
-
-# serialized_makeup = File.read("#{Rails.root}/db/data/makeup.json")
-# makeups = JSON.parse(serialized_makeup)
-
-# makeups.first(20).each do |makeup|
-#   name = makeup["name"]
-#   price = makeup["price"].to_f
-#   photo = makeup["image_link"]
-#   description = makeup["description"]
-#   new_gift = Gift.create!(name: name, price: price, photo: photo, description: description)
-#   puts "#{new_gift.id} was sucessfully created!"
-# end
-
-# require "open-uri"
-# require "nokogiri"
-
-# url = "https://www.self.com/gallery/best-tech-gifts"
-
-# html_file = URI.open(url).read
-# html_doc = Nokogiri::HTML(html_file)
-
-# html_doc.search(".GallerySlideCaptionHedText-dauSZL.hOQIAG").each do |element|
-# puts element.text.strip
-# end
-
-# require "open-uri"
-# require "nokogiri"
-
-# url = "https://www.self.com/gallery/best-tech-gifts"
-
-# html_file = URI.open(url).read
-# html_doc = Nokogiri::HTML(html_file)
-
-# html_doc.search(".gallery__slides__slide").each do |gift|
-#   p gift.search("h2").text
-#   p gift.search("p").text
-#   p gift.search(".product-offer__buy-button span span").text
-
-# # name = ".GallerySlideCaptionHedText-dauSZL.hOQIAG"
-# # price = "ButtonLabel-eAHUfq.bCFzBu.button__label"
-# # photo = ".ResponsiveImageContainer-dmlCKO.hWKgYV.responsive-image__image"
-# # description = ".GallerySlideCaptionDek-dhXPox.kLTDiI"
-# end
-
 require "open-uri"
 require "nokogiri"
 
+puts 'Cleaning DB...'
+Gift.destroy_all
 
 pages = [
   { url: "https://www.self.com/gallery/best-tech-gifts", category: "Technology" },
