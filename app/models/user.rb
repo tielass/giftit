@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :members
   has_many :events
   has_many :voting
+  
+  has_many :events, through: :members
 end

@@ -1,30 +1,38 @@
-
-<div class="pnav d-flex">
-  <h3>Profile</h3>
-  <div class="icons">
-    <i class="fa-solid fa-pen"></i>
-    <i class="fa-solid fa-gear"></i>
-  </div>
-</div>
-
-<section class="infosection w-100">
-<img id="pimg" class="mt-5" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile picture of the current user">
-  <div class="pinfos mt-4">
-    <p>Username?</p>
-    <p><%= current_user.email %></p>
-  </div>
-</section>
-
-
-<section>
-<h2>Your events</h2>
-  <%= @events.each do |event| %>
-    <div class="yourevents d-flex">
-      <div class="eventphoto"><%= event.photo %></div>
-      <div class="youreventinfo">
-        <%= event.name %>
-        <%= event.start_time %>
+    <div class="pnav d-flex justify-content-between mt-3">
+      <h1>Profile</h1>
+      <div class="icons">
+        <%= link_to '#' do %>
+          <i class="fa-solid fa-pen profileicons"></i>
+        <% end %>
+        <%= link_to '#' do %>
+          <i class="fa-solid fa-gear profileicons "></i>
+        <% end %>
       </div>
     </div>
-    <% end %>
-</section>
+
+<wholepage class="wholepage">
+  <profilepart>
+    <section class="infosection w-100">
+    <img id="pimg" class="mt-5" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile picture of the current user">
+      <div class="pinfos mt-4">
+        <p>Username?</p>
+        <p><%= current_user.email %></p>
+      </div>
+    </section>
+  </profilepart>
+
+  <section class="eventsection mt-3">
+  <h2 id="yeventsheader">Your events</h2>
+    <% @events.each do |event| %>
+      <div class="yourevents d-flex w-80">
+        <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :cover %>
+        <div class="youreventinfo">
+          <p><%= event.name %></p>
+          <p><%= event.start_time.strftime("%m/%d/%Y") %></p>
+        </div>
+      </div>
+      <hr class="hrevents">
+      <% end %>
+  </section>
+  <div>
+</wholepage>
