@@ -19,15 +19,16 @@ pages = [
   { url: "https://www.self.com/gallery/best-white-elephant-gifts", category: "Wildcard" }
 ]
 
-pages.first(1).each do |page|
+pages.each do |page|
   url = page[:url]
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML(html_file)
-  html_doc.search(".gallery__slides__slide").first(1).each do |gift|
+  html_doc.search(".gallery__slides__slide").each do |gift|
     name = gift.search("h2").text
     description = gift.search("p").text
-    price = gift.search(".product-offer__buy-button span span").text
-    photo = gift.search(".ResponsiveImageContainer-dmlCKO.hWKgYV.responsive-image__image").last.attributes["src"].value
-    # Gift.create(name:, price:, photo:, description:, category: page[1])
+    price = gift.search(".product-offer__buy-button span span").text.split("$").last.to_i
+    price = rand(30..60) if price.zero?
+    photo = gift.search(".ResponsiveImageContainer-dmlCKO.hWKgYV.responsive-image__image").last&.attributes&.[]("src")&.value
+    Gift.create(name: name, price: price, photo: photo, description: description, category: page[:category])
   end
 end
