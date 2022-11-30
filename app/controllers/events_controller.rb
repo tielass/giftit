@@ -14,7 +14,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    @event.tag_list
+    # @hash = @event.tag_list.map {|hash| hash.values}.flatten
+    # @hashtwo = @hash.each { |item| p item }
     if @event.save
       redirect_to event_path(@event)
     else
