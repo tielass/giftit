@@ -2,30 +2,27 @@
   <div class="event w-75">
     <h1><%= @event.name %></h1>
       <div class="center">
-        <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team">
+        <%# <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team"> %>
+        <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
       </div>
     <div class="card-product">
       <div class="card-product-infos" data-controller="eventhobby">
-        <p> <strong><%= @event.date %></strong>  </p>
+        <p> <strong><%= @event.start_time %></strong>  </p>
 
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
-          <div class="hobbies">
-            <%= @event.category %>
-          </div>
-          <div class="hobbies">
-            <%= @event.category %>
-          </div>
-          <div class="hobbies">
-            <%= @event.category %>
-          </div>
-          <div class="hobbies">
-            <%= @event.category %>
-          </div>
-          <div class="hobbies">
-            <%= @event.category %>
-          </div>
+          <%# <div class="show-hobbies"> %>
+            <%# <%= @event.hobbies %>
+          <%# </div> %>
+          <% @event.tag_list.each do |tag| %>
+            <div class="show-hobbies">
+              <%= tag %>
+            </div>
+          <% end %>
         </div>
+
+
+
 
         </p>
 
@@ -44,7 +41,7 @@
 
 
 
-        <div class="cards"> Members: Paul, Eoin </div>
+        <div> Members: Paul, Eoin </div>
         <div class="cards"> Share </div>
 
         <div> Price: <%= @event.price %> </p>

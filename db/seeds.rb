@@ -1,4 +1,4 @@
-require 'json'
+=begin require 'json'
 
 puts 'Cleaning DB...'
 Gift.destroy_all
@@ -14,3 +14,4 @@ makeups.first(20).each do |makeup|
   new_gift = Gift.create!(name: name, price: price, photo: photo, description: description)
   puts "#{new_gift.id} was sucessfully created!"
 end
+=end

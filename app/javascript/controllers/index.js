@@ -9,3 +9,7 @@ application.register("eventhobby", EventhobbyController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import Tagify from '@yaireo/tagify'
+
+var tagify = new Tagify(...)
