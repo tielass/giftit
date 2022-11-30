@@ -1,51 +1,69 @@
 <div class="d-flex justify-content-center flex-nowrap m-5">
-  <div class="event">
+  <div class="event w-75">
     <h1><%= @event.name %></h1>
       <div class="center">
         <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team">
       </div>
     <div class="card-product">
-      <div class="card-product-infos">
-      <p> <strong><%= @event.date %></strong>  </p>
-      <p> Hobbies:
-        <div class="hobbies">
-          <%= @event.category %>
-        </div>
-        <div class="hobbies">
-          <%= @event.category %>
-        </div>
-        <div class="hobbies">
-          <%= @event.category %>
-        </div>
-        <div class="hobbies">
-          <%= @event.category %>
-        </div>
-        <div class="hobbies">
-          <%= @event.category %>
-        </div>
-      </p>
+      <div class="card-product-infos" data-controller="eventhobby">
+        <p> <strong><%= @event.date %></strong>  </p>
 
-      <p> saved gifts (6) </p>
-      <p> members: Paul, Eoin</p>
-      <p> share </p>
+        <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
+        <div class="d-none" data-eventhobby-target="hobby">
+          <div class="hobbies">
+            <%= @event.category %>
+          </div>
+          <div class="hobbies">
+            <%= @event.category %>
+          </div>
+          <div class="hobbies">
+            <%= @event.category %>
+          </div>
+          <div class="hobbies">
+            <%= @event.category %>
+          </div>
+          <div class="hobbies">
+            <%= @event.category %>
+          </div>
+        </div>
 
-      <p> price: <%= @event.price %> </p>
-      <div class="slidecontainer">
-        <input type="range" min="10" max="1000" value="100" class="slider" id="myRange">
+        </p>
+
+        <div class="d-flex justify-content-between"> Saved gifts (6) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
+        </div>
+        <div class="cards d-flex justify-content-center">
+          <div class="d-none cards" data-eventhobby-target="saved">
+            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
+            </div>
+            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
+            </div>
+            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="cards"> Members: Paul, Eoin </div>
+        <div class="cards"> Share </div>
+
+        <div> Price: <%= @event.price %> </p>
+          <div class="slidecontainer">
+            <input type="range" min="10" max="1000" value="100" class="slider" id="myRange">
+          </div>
+        </div>
+
+        <h3> Gift Suggestions<h3>
+        <div class="cards d-flex justify-content-center">
+          <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
+            </div>
+            <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
+            </div>
+            <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
+            </div>
+          </div>
+        </div>
       </div>
-
-      <h3> Gift Suggestions<h3>
-      <div class="cards">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
-          </div>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
-          </div>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
-          </div>
-        </div>
-
-      </div>
-    </div>
       <h3><%= link_to "All events", events_path %> </h3>
     </div>
   </div>
