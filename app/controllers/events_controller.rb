@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   def index
+    @events = Event.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
     @events = Event.all
   end
 
@@ -17,8 +20,10 @@ class EventsController < ApplicationController
     @event.tag_list
     if @event.save
       redirect_to event_path(@event)
+      @member = Member.new(user_id: current_user.id, event_id: @event.id)
+      @member.save
     else
-      render '../views/events/show.html.erb', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

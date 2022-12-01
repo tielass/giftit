@@ -1,26 +1,10 @@
+<%= render "shared/giftheader" %>
 <%= render "shared/calendar" %>
-
-<ul>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-</ul>
-<ul>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-  <li>info</li>
-</ul>
+<div class="container text-center">
+  <%= link_to "Add event", new_event_path, class:"btn-giftit my-5" %>
+</div>
+ <div class="container text-center">
+  <% @events.each do |event| %>
+  <p><%= event.name %><span>  <%= event.start_time.day %></span></p>
+  <% end %>
+</div>

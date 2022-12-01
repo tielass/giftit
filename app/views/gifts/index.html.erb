@@ -1,0 +1,30 @@
+<%= render "shared/navbar" %>
+<div class="giftheader">
+  <h3>Popular in Hiking</h3>
+  <span>view more</span>
+</div>
+
+
+
+<div class="container giftgrid">
+  <% @gifts.each do |gift| %>
+  <%= link_to gift_path(gift) do %>
+    <div class="giftcard">
+      <%= image_tag gift.photo %>
+        <div class="card-title">
+          <% if gift.name.split(": ")[1..-1].size == 1 %>
+            <%= gift.name.split(": ")[1..-1].join %>
+          <% else %>
+            <%= gift.name %>
+          <% end %>
+      </div>
+      <div class="card-title">
+        <%= gift.name %>
+      </div>
+      <div class="card-text">
+        $<%= gift.price.to_i %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
