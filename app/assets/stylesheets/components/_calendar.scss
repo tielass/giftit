@@ -1,0 +1,116 @@
+// Calendar Heading
+.calendar-heading {
+  background: #5B6775;
+  color: #fff;
+  font-weight: 400;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calendar-heading a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 300;
+}
+
+.calendar-title {
+  font-size: 20px;
+}
+
+// Calendar Table
+
+.table {
+  background: #F88F42;
+  --bs-table-striped-bg: #F88F42;
+}
+
+.table > thead {
+  color: #fff;
+}
+
+.table th {
+  text-align: center;
+}
+
+.table tbody {
+  background: #F88F42;
+  border-radius: 0 0 10px 10px;
+}
+
+.table td {
+  padding: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+// Calendar bottom container
+
+.bottom-padding {
+  background: #F88F42;
+  height: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0px 0px 12px 12px;
+}
+
+// Simple calendar original classes
+
+.simple-calendar {
+  background: #F88F42;
+  border-radius: 0px 0px 12px 12px;
+}
+
+.simple-calendar table {
+  border: none;
+}
+
+.simple-calendar td {
+  border: #F88F42;
+}
+
+.simple-calendar th {
+  border: #F88F42;
+}
+
+.day {
+  height: 40px !important;
+}
+
+.wday-0 {
+
+}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
+
+.today {}
+.past {
+
+}
+.future {
+
+}
+
+.start-date {}
+
+.prev-month {}
+.next-month { }
+.current-month {}
+
+.has-events {}
+
+.round-date {
+  background: #B44100;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}

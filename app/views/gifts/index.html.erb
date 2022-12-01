@@ -1,0 +1,14 @@
+    <%= render "shared/navbar" %>
+    <% @gifts.each do |gift| %>
+    <%= link_to gift_path(gift) do %>
+      <div class="card m-4">
+        <%= image_tag gift.photo, :size => "200x150" %>
+        <div class="card-title">
+          <%= gift.name %>
+        </div>
+        <div class="card-text">
+          <%= gift.description %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>

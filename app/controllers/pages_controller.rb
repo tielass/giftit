@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @events = Event.all.where(user: current_user).order(start_time: :asc)
+    @events = Event.where(user: current_user).order(start_time: :asc)
+    @joinedevents = Event.joins(:members).where(members: { user: current_user })
   end
 end

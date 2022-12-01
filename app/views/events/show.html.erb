@@ -1,10 +1,12 @@
 <div class="d-flex justify-content-center flex-nowrap m-5">
   <div class="event w-75">
     <h1><%= @event.name %></h1>
+    <div class="container">
       <div class="center">
         <%# <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team"> %>
         <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
       </div>
+    </div>
     <div class="card-product">
       <div class="card-product-infos" data-controller="eventhobby">
         <p> <strong><%= @event.start_time %></strong>  </p>
