@@ -20,8 +20,10 @@ class EventsController < ApplicationController
     @event.tag_list
     if @event.save
       redirect_to event_path(@event)
+      @member = Member.new(user_id: current_user.id, event_id: @event.id)
+      @member.save
     else
-      render :new , status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
