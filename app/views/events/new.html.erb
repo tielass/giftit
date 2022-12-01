@@ -5,10 +5,11 @@
 
     <%= f.input :photo, as: :file, label: "Add your fan Image"%>
     <%= f.input :name, placeholder: 'Steves birthday' %>
-    <%= f.input :start_time %>
+    <%= f.input :start_time, html5: true %>
     <%= f.input :tag_list, class:"customLook", input_html: { data: { addhobby_target: "addHobby", action: "change->addhobby#addTag" } } %>
     <%= f.hint 'Choose: Technology, Chocolate, Food, Cooking, Running, Hiking, Perfume, Practical, Subscriptions, Wellness, Yoga, Wildcard' %>
     <%#= f.input :hobbies %>
+
     <%# <input class="customLook" value="tags here"> %>
     <%# <button type="button">+</button> %>
     <%# <input name='basic' value='tag1'> %>

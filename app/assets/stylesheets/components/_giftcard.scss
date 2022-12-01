@@ -1,0 +1,123 @@
+// Gift header
+.giftheader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 -27px;
+}
+
+.giftheader h3{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #554A48;
+}
+
+.giftheader span {
+  font-size: 14px;
+  line-height: 21px;
+  color: #F88734;
+}
+
+// Gift-grid
+
+.giftgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 6px;
+  margin-left: 13px;
+}
+
+.giftgrid a{
+  text-decoration: none;
+  color: #000;
+}
+
+// Gift-card
+
+.giftcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px auto;
+}
+
+.giftcard img {
+  width: 169px;
+  height: 222px;
+  border-radius: 20px;
+  object-fit: cover;box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+
+// Card text
+.card-title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 5px;
+}
+
+.card-text {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #F88F42;
+}
+
+// Single gift card
+
+// Single card header
+.giftheadersolo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px;
+}
+
+.giftheadersolo h3{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #554A48;
+  margin: 10px 0 0 35px;
+}
+
+// Single card
+
+.giftcardsolo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+
+.giftcardsolo img{
+  width: 327px;
+  height: 430px;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.giftimage {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.giftinfo {
+  width: 327px;
+  margin-left: 37px;
+}
+
+.card-description {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
