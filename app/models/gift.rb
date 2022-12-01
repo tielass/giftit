@@ -1,7 +1,7 @@
 class Gift < ApplicationRecord
 
-  # CATEGORY = []
-  # validates :category, inclusion: { in: CATEGORY }
+# CATEGORY = []
+# validates :category, inclusion: { in: CATEGORY }
   CATEGORY = [
     "Technology",
     "Chocolate",
