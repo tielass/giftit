@@ -17,11 +17,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-
+    @event.tag_list
     if @event.save
       redirect_to event_path(@event)
     else
-      render :new, status: :unprocessable_entity
+      render '../views/events/show.html.erb', status: :unprocessable_entity
     end
   end
 
@@ -41,9 +41,13 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def tag_list
+    tags.map(&:name).join(",")
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :category, :price, :photo)
+    params.require(:event).permit(:name, :start_time, :tag_list, :price, :photo)
   end
 end
