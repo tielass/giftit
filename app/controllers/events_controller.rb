@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event)
     else
-      render '../views/events/show.html.erb', status: :unprocessable_entity
+      render :new , status: :unprocessable_entity
     end
   end
 
