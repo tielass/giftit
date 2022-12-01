@@ -17,12 +17,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    # @hash = @event.tag_list.map {|hash| hash.values}.flatten
-    # @hashtwo = @hash.each { |item| p item }
+    tags = JSON.parse(params[:event][:tag_list])
+    tags.each do |tag|
+      @event.tag_list.add(tag["value"])
+    end
     if @event.save
       redirect_to event_path(@event)
     else
-      render '../views/events/show.html.erb', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -49,6 +51,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :tag_list, :price, :photo)
+    params.require(:event).permit(:name, :start_time, :price, :photo)
   end
 end
