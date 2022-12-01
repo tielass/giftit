@@ -1,3 +1,10 @@
-<%= month_calendar(attribute: :starts_at) do |date| %>
-  <%= date %>
-<% end %>
+<div class="calendar text-center">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <% event = @events.where("start_time > ? AND start_time < ?", date, date + 1.day ).first %>
+    <% if event  %>
+      <%= link_to date.day, event_path(event), class:"round-date"%>
+    <% else %>
+      <%= date.day %>
+    <% end %>
+  <% end %>
+</div>

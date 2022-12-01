@@ -1,0 +1,12 @@
+<%= render "shared/navbar" %>
+<div class="container">
+  <div class="card">
+    <%= image_tag @gift.photo, :size => "327x430" %>
+    <div class="card-title">
+    <%= @gift.name %>
+    </div>
+    <div class="card-text">
+      <%= @gift.description %>
+    </div>
+  </div>
+</div>
