@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
-import AddHobbyController from "./addhobby_controller"
-application.register("addhobby", AddHobbyController)
+import AddhobbyController from "./addhobby_controller"
+application.register("addhobby", AddhobbyController)
+
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import EventhobbyController from "./eventhobby_controller"
 application.register("eventhobby", EventhobbyController)
