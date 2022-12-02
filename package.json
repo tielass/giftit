@@ -8,6 +8,7 @@
     "@rails/actioncable": "^7.0.4",
     "@yaireo/tagify": "^4.17.4",
     "bootstrap": "^5.2.3",
+    "stimulus-carousel": "^4.0.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   },

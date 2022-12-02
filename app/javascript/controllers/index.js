@@ -15,3 +15,4 @@ application.register("eventhobby", EventhobbyController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
