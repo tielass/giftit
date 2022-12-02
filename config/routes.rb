@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { invitations: 'users/invitations' }
   root to: "pages#home"
   resources :events
   resources :chatrooms, only: %i[show index] do
@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
   resources :gifts
   get "/profile", to: "pages#profile"
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
