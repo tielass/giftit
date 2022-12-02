@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    raise
   end
 
   def new
@@ -17,10 +18,12 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    tags = JSON.parse(params[:event][:tag_list])
-    tags.each do |tag|
-      @event.tag_list.add(tag["value"])
+    @tags = JSON.parse(params[:event][:tag_list])
+    @tags.each do |tag|
+      EventTag.create(name: tag["value"], event: @event)
+      # @event.tag_list.add(tag["value"])
     end
+
     if @event.save
       redirect_to event_path(@event)
       @member = Member.new(user_id: current_user.id, event_id: @event.id)
@@ -53,6 +56,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :price, :photo)
+    params.require(:event).permit(:name, :members, :start_time, :price, :photo)
   end
 end
