@@ -1,17 +1,10 @@
 <%= render "shared/navbar" %>
 
-<div class="col d-flex justify-content-center">
-  <div class="card text-center" style="width: 24rem;margin-top: 10px;">
-    <div class="card-body">
-      <h1 class="card-text">GiftIt - give them what they really want!</h1>
-      <a class="btn-giftit my-3" href="/events/new">Create GiftIt Event</a>
-    </div>
-  </div>
-</div>
+
 
 <div class="giftheader">
   <h3>Popular in Hiking</h3>
-  <span><a href="/events/new"> Add to event</a></span>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
@@ -36,7 +29,7 @@
 
 <div class="giftheader">
   <h3>Popular in Tech</h3>
-  <span><a href="/events/new"> Add to event</a></span>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
@@ -61,7 +54,7 @@
 
 <div class="giftheader">
   <h3>Popular in Yoga</h3>
-  <span><a href="/events/new"> Add to event</a></span>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
@@ -84,6 +77,8 @@
   <% end %>
 </div>
 
-<div class="col d-flex justify-content-center">
+<div class="container bottom-container">
+  <h4>GiftIt - give them what they really want!</h4>
   <a class="btn-giftit my-3" href="/events/new">Create GiftIt Event</a>
 </div>
+<div class="bottom-push"></div>
