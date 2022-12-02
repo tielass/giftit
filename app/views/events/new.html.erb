@@ -1,6 +1,5 @@
+<%= render "shared/createevent" %>
 <div class="container p-4 mt-3" data-controller="addhobby">
-  <div class="d-flex justify-content-center"><h1>Create event</h1></div>
-
   <%= simple_form_for(@event) do |f|  %>
 
     <%= f.input :photo, as: :file, label: "Add your fan Image"%>
