@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 0 -27px;
 }
 
 .giftheader h3{
@@ -25,7 +24,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 6px;
-  margin-left: 13px;
 }
 
 .giftgrid a{
@@ -120,4 +118,34 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+}
+
+// Gift link
+
+.gift-link a{
+  text-decoration: none;
+  color: #F88F42;
+}
+
+//  Bottom div
+
+.bottom-push {
+  height: 60px;
+  margin-bottom: 50px;
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.bottom-container h4 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #554A48;
 }

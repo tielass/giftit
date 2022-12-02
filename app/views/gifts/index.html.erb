@@ -1,30 +1,84 @@
 <%= render "shared/navbar" %>
+
+
+
 <div class="giftheader">
   <h3>Popular in Hiking</h3>
-  <span>view more</span>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
 </div>
 
-
-
 <div class="container giftgrid">
-  <% @gifts.each do |gift| %>
-  <%= link_to gift_path(gift) do %>
+  <% @hiking_gifts.each do |hiking_gift| %>
+  <%= link_to gift_path(hiking_gift) do %>
     <div class="giftcard">
-      <%= image_tag gift.photo %>
+      <%= image_tag hiking_gift.photo %>
         <div class="card-title">
-          <% if gift.name.split(": ")[1..-1].size == 1 %>
-            <%= gift.name.split(": ")[1..-1].join %>
+          <% if hiking_gift.name.split(": ")[1..-1].size == 1 %>
+            <%= hiking_gift.name.split(": ")[1..-1].join %>
           <% else %>
-            <%= gift.name %>
+            <%= hiking_gift.name %>
           <% end %>
       </div>
-      <div class="card-title">
-        <%= gift.name %>
-      </div>
       <div class="card-text">
-        $<%= gift.price.to_i %>
+        $<%= hiking_gift.price.to_i %>
       </div>
     </div>
     <% end %>
   <% end %>
 </div>
+
+<div class="giftheader">
+  <h3>Popular in Tech</h3>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
+</div>
+
+<div class="container giftgrid">
+  <% @technology_gifts.each do |technology_gift| %>
+  <%= link_to gift_path(technology_gift) do %>
+    <div class="giftcard">
+      <%= image_tag technology_gift.photo %>
+        <div class="card-title">
+          <% if technology_gift.name.split(": ")[1..-1].size == 1 %>
+            <%= technology_gift.name.split(": ")[1..-1].join %>
+          <% else %>
+            <%= technology_gift.name %>
+          <% end %>
+      </div>
+      <div class="card-text">
+        $<%= technology_gift.price.to_i %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="giftheader">
+  <h3>Popular in Yoga</h3>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
+</div>
+
+<div class="container giftgrid">
+  <% @yoga_gifts.each do |yoga_gift| %>
+  <%= link_to gift_path(yoga_gift) do %>
+    <div class="giftcard">
+      <%= image_tag yoga_gift.photo %>
+        <div class="card-title">
+          <% if yoga_gift.name.split(": ")[1..-1].size == 1 %>
+            <%= yoga_gift.name.split(": ")[1..-1].join %>
+          <% else %>
+            <%= yoga_gift.name %>
+          <% end %>
+      </div>
+      <div class="card-text">
+        $<%= yoga_gift.price.to_i %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="container bottom-container">
+  <h4>GiftIt - give them what they really want!</h4>
+  <a class="btn-giftit my-3" href="/events/new">Create GiftIt Event</a>
+</div>
+<div class="bottom-push"></div>

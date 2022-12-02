@@ -7,7 +7,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    # @gifts = Gift.where(category: params[:event_tags])
     @event = Event.find(params[:id])
+    @gifts = Gift.where(category: @event.event_tags.pluck(:name))
   end
 
   def new
@@ -17,7 +19,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    @event.tag_list
+    @tags = JSON.parse(params[:event][:tag_list])
+    @tags.map do |tag|
+      EventTag.create(name: tag["value"], event: @event)
+      # @event.tag_list.add(tag["value"])
+    end
     if @event.save
       redirect_to event_path(@event)
       @member = Member.new(user_id: current_user.id, event_id: @event.id)
@@ -50,6 +56,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :tag_list, :price, :photo)
+    params.require(:event).permit(:name, :members, :start_time, :price, :photo)
   end
 end
