@@ -24,9 +24,10 @@
   <section class="eventsection mt-3">
   <h2 id="yeventsheader">Your events</h2>
     <% @events.each do |event| %>
-    
+
       <div class="yourevents d-flex w-80">
-        <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :cover %>
+        <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :fill %>
+        <%# <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
         <div class="youreventinfo">
           <%= link_to event_path(event) do %>
             <p><%= event.name %></p>

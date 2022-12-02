@@ -47,10 +47,10 @@ gem "sassc-rails"
 gem "simple_calendar", "~> 2.4"
 gem "cloudinary"
 gem 'acts-as-taggable-on', '~> 9.0'
-
+# gem 'mailcatcher'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-
+gem 'devise_invitable', '~> 2.0.0'
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

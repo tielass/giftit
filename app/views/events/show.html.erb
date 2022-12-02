@@ -3,38 +3,21 @@
     <h1><%= @event.name %></h1>
     <div class="container">
       <div class="center">
-        <%# <img class="event-img" src="https://cdn.thisiswhyimbroke.com/thumb/wacko-jacko-mask_400x333.jpg" alt="GiftIt team"> %>
-        <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
+        <%= cl_image_tag @event.photo.key, height: 131, width: 131, crop: :fill, :radius => 50 %>
       </div>
     </div>
     <div class="card-product">
       <div class="card-product-infos" data-controller="eventhobby">
         <p> <strong><%= @event.start_time %></strong>  </p>
-
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
-          <%# <div class="show-hobbies"> %>
-            <%# <%= @event.hobbies %>
-          <%# </div> %>
-
-          <% @event.tag_list.each do |tag| %>
+          <% @event.event_tags.each do |tag| %>
             <div class="show-hobbies">
-              <%= tag %>
-            </div>
-          <% end %>
-
-          <% @event.tag_list.map do |tag|%>
-            <div class="show-hobbies">
-              <%= tag %>
+              <%= tag.name %>
             </div>
           <% end %>
         </div>
-
-
-
-
         </p>
-
         <div class="d-flex justify-content-between"> Saved gifts (6) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
         </div>
         <div class="cards d-flex justify-content-center">
@@ -50,30 +33,66 @@
 
 
         <div> Members: Paul, Eoin </div>
-        <div class="cards"> Share </div>
+
+
+        <div class="cards"data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Share </div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <%= simple_form_for(User.new(), url: user_invitation_path) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email %>
+          <%= f.input :username %>
+        </div>
+
+        <div class="form-actions">
+          <%= hidden_field_tag(:event, @event.id) %>
+          <div class="" data-bs-dismiss="modal">
+            <%= f.button :submit, t("devise.invitations.new.submit_button") %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div class="price_selector"> Price: <%= @event.price %> </p>
         <label for="temp">Price</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" />
+        <div class="cards"> Share </div>
+        <label for="temp">Price: <%= @event.price %></label><br />
+        <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
+
         <datalist id="tickmarks">
           <option value="0" label="0"></option>
-          <option value="50" label="50"></option>
-          <option value="100" label="100"></option>
-          <option value="150" label="150"></option>
           <option value="200" label="200"></option>
-          <option value="500" label="500"></option>
+          <option value="400" label="400"></option>
         </datalist>
 
-        <h3> Gift Suggestions<h3>
-        <div class="cards d-flex justify-content-center">
-          <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
-            </div>
-            <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
-            </div>
-            <div class="card-category-suggestions" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
-            </div>
-          </div>
+
+        <h3 class="my-4"> Gift Suggestions</h3>
+        <div class="wishlist">
+          <% @gifts.shuffle.sample(12).each do |gift| %>
+            <%= link_to gift_path(gift) do %>
+              <div class="wishlist-item">
+                <%= image_tag gift.photo %>
+                <div class="wishlist-text">
+                  <p><%= gift.name.first(10) %></p>
+                  <p class="wishlist-price">$<%= gift.price.to_i %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
-      <h3><%= link_to "All events", events_path %> </h3>
     </div>
   </div>

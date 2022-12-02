@@ -38,8 +38,23 @@ Rails.application.configure do
   config.active_storage.service = :cloudinary
 
   # Don't care if the mailer can't send.
+  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
 
+  # this line is what you want to be true, else you won't get messages!
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: 'gmail.com', # or to whatever domain your email is
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV["gmail_email"],
+    password: ENV["gmail_password"]
+  }
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.

@@ -1,7 +1,7 @@
 class Gift < ApplicationRecord
 
-  # CATEGORY = []
-  # validates :category, inclusion: { in: CATEGORY }
+# CATEGORY = []
+# validates :category, inclusion: { in: CATEGORY }
   CATEGORY = [
     "Technology",
     "Chocolate",
@@ -18,5 +18,6 @@ class Gift < ApplicationRecord
   ]
   validates :category, inclusion: { in: CATEGORY }
   has_many :wishlistgifts
+  has_many :event_tags
   validates :name, :price, :description, :photo, presence: true
 end
