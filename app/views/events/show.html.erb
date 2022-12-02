@@ -33,18 +33,20 @@
 
 
         <div> Members: Paul, Eoin </div>
+
+
+
+
         <div class="cards"> Share </div>
-        <div class="price_selector"> Price: $<%= @event.price.to_i %> </p>
-        <label for="temp">Price</label><br />
-        <input type="range" id="temp" name="temp" list="tickmarks" />
-        <%# <datalist id="tickmarks">
+
+        <label for="temp">Price: <%= @event.price %></label><br />
+        <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
+        <datalist id="tickmarks">
           <option value="0" label="0"></option>
-          <option value="50" label="50"></option>
-          <option value="100" label="100"></option>
-          <option value="150" label="150"></option>
           <option value="200" label="200"></option>
-          <option value="500" label="500"></option>
-        </datalist> %>
+          <option value="400" label="400"></option>
+        </datalist>
+
 
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist">
