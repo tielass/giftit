@@ -7,9 +7,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    # @gifts = Gift.where(category: params[:event_tags])
     @event = Event.find(params[:id])
-
-
+    @gifts = Gift.where(category: @event.event_tags.pluck(:name))
   end
 
   def new

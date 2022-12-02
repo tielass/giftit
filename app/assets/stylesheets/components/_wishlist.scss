@@ -1,0 +1,50 @@
+// Wishlist grid
+.wishlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    justify-content: center;
+}
+
+.wishlist a {
+  text-decoration: none;
+}
+
+// Wishlist item
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.wishlist-item img {
+  height: 100px;
+  width: 100px;
+  border-radius: 20px;
+  padding-bottom: 5px;
+  filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+// Wishlist text
+
+.wishlist-text {
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  padding-left: 9px;
+}
+
+.wishlist-text p{
+  margin-bottom: 0;
+}
+
+.wishlist-price {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #F88F42;
+}
