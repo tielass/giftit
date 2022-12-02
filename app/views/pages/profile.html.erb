@@ -28,8 +28,12 @@
         <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :fill %>
         <%# <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
         <div class="youreventinfo">
+        <%= link_to event_path(event) do %>
           <p><%= event.name %></p>
+        <% end %>
+        <%= link_to event_path(event) do %>
           <p><%= event.start_time.strftime("%m/%d/%Y") %></p>
+        <% end %>
         </div>
       </div>
       <hr class="hrevents">

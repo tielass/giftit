@@ -64,6 +64,23 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "giftit_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'https://www.giftit.one' }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+
+  # this line is what you want to be true, else you won't get messages!
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: 'gmail.com', # or to whatever domain your email is
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV["gmail_email"],
+    password: ENV["gmail_password"]
+  }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

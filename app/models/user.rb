@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :members
   has_many :events
   has_many :voting
-  devise :invitable
   validates :username, :email, presence: true, uniqueness: true
   has_many :events, through: :members
 end
