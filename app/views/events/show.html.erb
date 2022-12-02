@@ -49,16 +49,12 @@
 
 
         <div class="cards"> Share </div>
-        <div class="price_selector"> Price: <%= @event.price %> </p>
-        <label for="temp">Price</label><br />
-        <input type="range" id="temp" name="temp" list="tickmarks" />
+        <label for="temp">Price: <%= @event.price %></label><br />
+        <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
         <datalist id="tickmarks">
           <option value="0" label="0"></option>
-          <option value="50" label="50"></option>
-          <option value="100" label="100"></option>
-          <option value="150" label="150"></option>
           <option value="200" label="200"></option>
-          <option value="500" label="500"></option>
+          <option value="400" label="400"></option>
         </datalist>
 
         <h3> Gift Suggestions<h3>
