@@ -8,7 +8,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    raise
+
+
   end
 
   def new
@@ -19,11 +20,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     @tags = JSON.parse(params[:event][:tag_list])
-    @tags.each do |tag|
+    @tags.map do |tag|
       EventTag.create(name: tag["value"], event: @event)
       # @event.tag_list.add(tag["value"])
     end
-
     if @event.save
       redirect_to event_path(@event)
       @member = Member.new(user_id: current_user.id, event_id: @event.id)

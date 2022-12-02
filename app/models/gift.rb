@@ -18,5 +18,6 @@ class Gift < ApplicationRecord
   ]
   validates :category, inclusion: { in: CATEGORY }
   has_many :wishlistgifts
+  has_many :event_tags
   validates :name, :price, :description, :photo, presence: true
 end

@@ -17,17 +17,12 @@
             <%# <%= @event.hobbies %>
           <%# </div> %>
 
-          <% @event.tag_list.each do |tag| %>
+          <% @event.event_tags.each do |tag| %>
             <div class="show-hobbies">
-              <%= tag %>
+              <%= tag.name %>
             </div>
           <% end %>
 
-          <% @event.tags.each do |tag| %>
-            <div class="show-hobbies">
-              <%= tag %>
-            </div>
-          <% end %>
 
 
         </div>
