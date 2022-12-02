@@ -1,7 +1,17 @@
 <%= render "shared/navbar" %>
+
+<div class="col d-flex justify-content-center">
+  <div class="card text-center" style="width: 24rem;margin-top: 10px;">
+    <div class="card-body">
+      <h1 class="card-text">GiftIt - give them what they really want!</h1>
+      <a class="btn-giftit my-3" href="/events/new">Create GiftIt Event</a>
+    </div>
+  </div>
+</div>
+
 <div class="giftheader">
   <h3>Popular in Hiking</h3>
-  <span>view more</span>
+  <span><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
@@ -16,9 +26,6 @@
             <%= hiking_gift.name %>
           <% end %>
       </div>
-      <div class="card-title">
-        <%= hiking_gift.name %>
-      </div>
       <div class="card-text">
         $<%= hiking_gift.price.to_i %>
       </div>
@@ -28,8 +35,8 @@
 </div>
 
 <div class="giftheader">
-  <h3>Popular in Technology</h3>
-  <span>view more</span>
+  <h3>Popular in Tech</h3>
+  <span><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
@@ -44,9 +51,6 @@
             <%= technology_gift.name %>
           <% end %>
       </div>
-      <div class="card-title">
-        <%= technology_gift.name %>
-      </div>
       <div class="card-text">
         $<%= technology_gift.price.to_i %>
       </div>
@@ -56,29 +60,30 @@
 </div>
 
 <div class="giftheader">
-  <h3>Popular in Chocolate</h3>
-  <span>view more</span>
+  <h3>Popular in Yoga</h3>
+  <span><a href="/events/new"> Add to event</a></span>
 </div>
 
 <div class="container giftgrid">
-  <% @chocolate_gifts.each do |chocolate_gift| %>
-  <%= link_to gift_path(chocolate_gift) do %>
+  <% @yoga_gifts.each do |yoga_gift| %>
+  <%= link_to gift_path(yoga_gift) do %>
     <div class="giftcard">
-      <%= image_tag chocolate_gift.photo %>
+      <%= image_tag yoga_gift.photo %>
         <div class="card-title">
-          <% if chocolate_gift.name.split(": ")[1..-1].size == 1 %>
-            <%= chocolate_gift.name.split(": ")[1..-1].join %>
+          <% if yoga_gift.name.split(": ")[1..-1].size == 1 %>
+            <%= yoga_gift.name.split(": ")[1..-1].join %>
           <% else %>
-            <%= chocolate_gift.name %>
+            <%= yoga_gift.name %>
           <% end %>
       </div>
-      <div class="card-title">
-        <%= chocolate_gift.name %>
-      </div>
       <div class="card-text">
-        $<%= chocolate_gift.price.to_i %>
+        $<%= yoga_gift.price.to_i %>
       </div>
     </div>
     <% end %>
   <% end %>
+</div>
+
+<div class="col d-flex justify-content-center">
+  <a class="btn-giftit my-3" href="/events/new">Create GiftIt Event</a>
 </div>
