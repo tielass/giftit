@@ -10,6 +10,8 @@ class EventsController < ApplicationController
     # @gifts = Gift.where(category: params[:event_tags])
     @event = Event.find(params[:id])
     @gifts = Gift.where(category: @event.event_tags.pluck(:name))
+    @members = @event.members.where(event_id: @event.id).joins(:user)
+
   end
 
   def new

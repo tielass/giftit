@@ -31,17 +31,31 @@
           </div>
         </div>
 
-
-        <div> Members: Paul, Eoin </div>
+        <div> Members: </div>
+        <div class="d-flex">
+          <% @members.each do |member| %>
+            <% if member == @members.last %>
+              <div><%= member.user.username %></div>
+            <% else %>
+              <div class="d-flex"><%= member.user.username %><p>, &nbsp;</p></div>
+            <% end %>
+          <% end %>
+        </div>
 
 
         <div class="cards"data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Share </div>
+
+        <div class="sharebtn">
+          <%= cl_image_tag ("share.ico.svg") %>
+          <div class="cards"> Share </div>
+        </div>
+
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">invite a friend!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -68,7 +82,6 @@
         <div class="price_selector"> Price: <%= @event.price %> </p>
         <label for="temp">Price</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" />
-        <div class="cards"> Share </div>
         <label for="temp">Price: <%= @event.price %></label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
 
