@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: 'users/invitations' }
-  root to: "pages#home"
+  root to: "gifts#index"
   resources :events
   resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create

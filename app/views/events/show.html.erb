@@ -8,7 +8,7 @@
     </div>
     <div class="card-product">
       <div class="card-product-infos" data-controller="eventhobby">
-        <p> <strong><%= @event.start_time %></strong>  </p>
+        <p> <strong><%= @event.start_time.strftime("%A %S %b %y") %></strong></p>
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
           <% @event.event_tags.each do |tag| %>
@@ -43,11 +43,11 @@
         </div>
 
 
-        <div class="cards"data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Share </div>
 
-        <div class="sharebtn">
-          <%= cl_image_tag ("share.ico.svg") %>
-          <div class="cards"> Share </div>
+        <div class="sharebtn d-flex p-1">
+        <i class="fa-solid fa-share-nodes sendicon"></i>
+        <%# <i class="fa-solid fa-share sendicon"></i> %>
+        <div class="cards" data-bs-toggle="modal" data-bs-target="#staticBackdrop">&nbsp;Share </div>
         </div>
 
 <!-- Modal -->
@@ -79,7 +79,7 @@
   </div>
 </div>
 
-        <div class="price_selector"> Price: <%= @event.price %> </p>
+        <div class="price_selector"> Price: <%= @event.price %>€ </p>
         <label for="temp">Price</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" />
         <label for="temp">Price: <%= @event.price %></label><br />
