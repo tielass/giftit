@@ -13,7 +13,7 @@
           <%= image_tag chatroom.event.photo %>
           <div class="chattext">
             <p><%= chatroom.name %></p>
-            <p><%= chatroom.event.start_time %></p>
+            <p><%= chatroom.event.start_time.strftime("%a %e %b %y") %></p>
           </div>
 
         </div>

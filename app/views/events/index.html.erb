@@ -5,6 +5,6 @@
 </div>
  <div class="container text-center">
   <% @events.each do |event| %>
-  <p><%= event.name %><span>  <%= event.start_time.day %></span></p>
+  <p><%= event.name %>on: <%= event.start_time.strftime("%a %e %b %y") %></p>
   <% end %>
 </div>
