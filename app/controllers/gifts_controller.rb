@@ -1,4 +1,5 @@
 class GiftsController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
     @gifts = Gift.all
     # Filter category on gift index page

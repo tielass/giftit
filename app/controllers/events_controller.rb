@@ -7,10 +7,15 @@ class EventsController < ApplicationController
   end
 
   def show
-    # @gifts = Gift.where(category: params[:event_tags])
     @event = Event.find(params[:id])
     @gifts = Gift.where(category: @event.event_tags.pluck(:name))
     @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
+    @gifts = @gifts.reject do |gift|
+      gift.wishlistgifts.any? do |wlg|
+        @wishlistgift.include?(wlg)
+      end
+    end
+
     @members = @event.members.where(event_id: @event.id).joins(:user)
   end
 
@@ -26,6 +31,7 @@ class EventsController < ApplicationController
       EventTag.create(name: tag["value"], event: @event)
       # @event.tag_list.add(tag["value"])
     end
+
     if @event.save
       redirect_to event_path(@event)
       @member = Member.new(user_id: current_user.id, event_id: @event.id)
