@@ -1,0 +1,43 @@
+.event-input{
+  outline: 0;
+  border-bottom: 1px solid #DBDBDB;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #F9F3F0;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.event-input:focus {
+  outline: none;
+}
+
+.event-image {
+  border-radius: 50%;
+  width: 131px;
+  height: 131px;
+}
+
+.bottom-pushup {
+  margin-bottom: 150px;
+}
+
+// Tagify
+
+.tagify {
+  outline: 0 !important;
+  border-bottom: 1px solid #DBDBDB !important;
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  border-bottom-style: groove !important;
+  background-color: #F9F3F0 !important;
+}
+
+.tagify__input {
+  margin: 0 !important;
+}

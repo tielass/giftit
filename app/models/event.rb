@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many :members
   has_many :users, through: :members
   has_many :event_tags
-  has_many :wishlistgifts, through: :wishlist
+  has_many :wishlistgifts
   validates_numericality_of :price, :greater_than => 0
   validates :name, :start_time, :price, presence: true
   has_one_attached :photo

@@ -1,4 +1,4 @@
 class Wishlistgift < ApplicationRecord
   belongs_to :gift
-  belongs_to :wishlist
+  belongs_to :event
 end
