@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center flex-nowrap m-5">
   <div class="event w-75">
-    <h1><%= @event.name %></h1>
+    <h1><%= @event.name %> </h1> <%#= link_to "Delete", delete_path(@event) %>
     <div class="container">
       <div class="center">
         <%= cl_image_tag @event.photo.key, height: 131, width: 131, crop: :fill, :radius => 50 %>
@@ -25,18 +25,20 @@
           <div class="d-none " data-eventhobby-target="saved">
 <%# Wishlist %>
          <div class="wishlist">
+
             <% @wishlistgift.each do |wishlist| %>
               <div class="wishlistgift-container">
               <%= link_to "#" do %>
                 <%= image_tag "star.svg", class:"wishlistgift-image" %>
               <% end %>
-              <%= link_to gift_path(wishlist) do %>
+              <%= link_to gift_path(wishlist.gift) do %>
                 <div class="wishlist-item">
                   <%= image_tag wishlist.gift.photo %>
                   <div class="wishlist-text">
                     <p><%= wishlist.gift.name %> </p>
                     <p class="wishlist-price">$<%= wishlist.gift.price.to_i %> </p>
                   </div>
+
                 </div>
                 <% end %>
               </div>
@@ -105,12 +107,12 @@
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
 
-            <div class="wishlistgift-container">
+            <div class="wishlistgift-container" data-controller="savegifts" data-savegifts-target="save">
               <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} do %>
                 <%= image_tag "heart.svg", class:"wishlistgift-image" %>
               <% end %>
               <%= link_to gift_path(gift) do %>
-                <div class="wishlist-item">
+                <div class="wishlist-item" data-action="click->savegifts#togglegifts">
                   <%= image_tag gift.photo %>
                   <div class="wishlist-text">
                     <p><%= gift.name %></p>

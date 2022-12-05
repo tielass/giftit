@@ -1,8 +1,10 @@
 <%= render "shared/navbar" %>
 
 
-
 <div class="giftheadermain">
+
+
+
   <h3>Popular in Hiking</h3>
   <span class="gift-link"><a href="/events/new"> Add to event</a></span>
 </div>
@@ -21,6 +23,33 @@
       </div>
       <div class="card-text">
         $<%= hiking_gift.price.to_i %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="giftheadermain">
+  <h3>Popular in Cooking</h3>
+  <span class="gift-link"><a href="/events/new"> Add to event</a></span>
+</div>
+
+
+<div class="container giftgrid">
+  <% @cooking_gifts.each do |cooking_gift| %>
+  <%= link_to gift_path(cooking_gift) do %>
+    <div class="giftcard">
+      <%= image_tag cooking_gift.photo %>
+        <div class="card-title">
+          <% if cooking_gift.name.split(": ")[1..-1].size == 1 %>
+            <%= cooking_gift.name.split(": ")[1..-1].join %>
+          <% else %>
+            <%= cooking_gift.name %>
+          <% end %>
+      </div>
+      <div class="card-text">
+        $<%= cooking_gift.price.to_i %>
       </div>
     </div>
     <% end %>
