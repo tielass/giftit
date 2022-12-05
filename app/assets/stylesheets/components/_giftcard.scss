@@ -1,20 +1,22 @@
 // Gift header
-.giftheader {
+.giftheadermain {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 20px;
   align-items: center;
 }
 
-.giftheader h3{
+.giftheadermain h3{
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
   color: #554A48;
 }
 
-.giftheader span {
+.giftheadermain span {
   font-size: 14px;
   line-height: 21px;
+  font-weight: 600;
   color: #F88734;
 }
 

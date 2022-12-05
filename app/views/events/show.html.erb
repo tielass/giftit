@@ -6,9 +6,9 @@
         <%= cl_image_tag @event.photo.key, height: 131, width: 131, crop: :fill, :radius => 50 %>
       </div>
     </div>
-    <div class="card-product">
-      <div class="card-product-infos" data-controller="eventhobby">
-        <p> <strong><%= @event.start_time.strftime("%A %S %b %y") %></strong></p>
+    <div class="">
+      <div class="" data-controller="eventhobby">
+        <p class="text-center"> <strong><%= @event.start_time.strftime("%A, %d %b %Y") %></strong></p>
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
           <% @event.event_tags.each do |tag| %>
@@ -18,40 +18,45 @@
           <% end %>
         </div>
         </p>
-        <div class="d-flex justify-content-between"> Saved gifts (<%= @wishlistgift.size %>) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
+        <div class="d-flex justify-content-between wishlist"> Saved gifts (<%= @wishlistgift.size %>) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
 
         </div>
-        <div class="cards d-flex justify-content-center">
-          <div class="d-none cards" data-eventhobby-target="saved">
-
+        <div class="my-3 d-flex justify-content-center">
+          <div class="d-none " data-eventhobby-target="saved">
+<%# Wishlist %>
          <div class="wishlist">
-          <% @wishlistgift.each do |wishlist| %>
-            <%= link_to gift_path(wishlist.gift) do %>
-              <div class="wishlist-item">
-                <%= image_tag wishlist.gift.photo %>
-                <div class="wishlist-text">
-                  <p><%= wishlist.gift.name.first(10) %> </p>
-                  <p class="wishlist-price">$<%= wishlist.gift.price.to_i %> </p>
+
+            <% @wishlistgift.each do |wishlist| %>
+              <div class="wishlistgift-container">
+              <%= link_to "#" do %>
+                <%= image_tag "star.svg", class:"wishlistgift-image" %>
+              <% end %>
+              <%= link_to gift_path(wishlist.gift) do %>
+                <div class="wishlist-item">
+                  <%= image_tag wishlist.gift.photo %>
+                  <div class="wishlist-text">
+                    <p><%= wishlist.gift.name %> </p>
+                    <p class="wishlist-price">$<%= wishlist.gift.price.to_i %> </p>
+                  </div>
+
                 </div>
+                <% end %>
               </div>
-            <% end %>
-          <% end %>
-        </div>
+              <% end %>
+          </div>
 
 
           </div>
         </div>
 
-        <div> Members: </div>
-        <div class="d-flex">
+        <span> Members: </span>
           <% @members.each do |member| %>
             <% if member == @members.last %>
-              <div><%= member.user.username %></div>
+              <span class="sharebtn"> <%= member.user.username %></span>
             <% else %>
-              <div class="d-flex"><%= member.user.username %><p>, &nbsp;</p></div>
+              <span> <%= member.user.username %><p>, &nbsp;</p></span>
             <% end %>
           <% end %>
-        </div>
 
 
 

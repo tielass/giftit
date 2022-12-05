@@ -13,3 +13,33 @@
   text-decoration: none;
   margin: 0 auto;
 }
+
+
+.btn-giftit-small {
+  background: #EF6D24;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 13px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+
+.foto-form {
+  position: relative;
+  top: -128px;
+  background-color: transparent;
+  opacity: 0;
+}
+
+.file {
+  text-align: center !important;
+  opacity: 0;
+}

@@ -4,6 +4,9 @@
       <%= image_tag "home.svg" %>
     <% end %>
 
+    <%= link_to events_path do %>
+      <%= image_tag "giftit.svg" %>
+    <% end %>
 
     <div class="" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -12,7 +15,7 @@
           <li class="dropdown">
             <%= image_tag "https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "/profile", class: "dropdown-item" %>
+              <%= link_to current_user.username.capitalize, "/profile", class: "dropdown-item sharebtn" %>
               <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
