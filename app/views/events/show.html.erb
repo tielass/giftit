@@ -18,7 +18,7 @@
           <% end %>
         </div>
         </p>
-        <div class="d-flex justify-content-between"> Saved gifts (6) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
+        <div class="d-flex justify-content-between"> Saved gifts (<%= @wishlistgift.size %>) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
 
         </div>
         <div class="cards d-flex justify-content-center">
@@ -91,17 +91,11 @@
   </div>
 </div>
 
-        <div class="price_selector"> Price: <%= @event.price %>€ </p>
-        <label for="temp">Price</label><br />
-        <input type="range" id="temp" name="temp" list="tickmarks" />
-        <label for="temp">Price: <%= @event.price %></label><br />
+
+        <label for="temp">Price: <%= @event.price %>$</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
 
-        <datalist id="tickmarks">
-          <option value="0" label="0"></option>
-          <option value="200" label="200"></option>
-          <option value="400" label="400"></option>
-        </datalist>
+
 
 
         <h3 class="my-4"> Gift Suggestions</h3>
@@ -109,7 +103,7 @@
           <% @gifts.shuffle.sample(12).each do |gift| %>
 
             <div class="wishlistgift-container">
-              <%= link_to do %>
+              <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} do %>
                 <%= image_tag "heart.svg", class:"wishlistgift-image" %>
               <% end %>
               <%= link_to gift_path(gift) do %>
@@ -117,7 +111,7 @@
                   <%= image_tag gift.photo %>
                   <div class="wishlist-text">
                     <p><%= gift.name.first(10) %></p>
-                    <p class="wishlist-price">$<%= gift.price.to_i %> | <%= link_to "Like", event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} %> </p>
+                    <p class="wishlist-price">$<%= gift.price.to_i %> </p>
                   </div>
                 </div>
               <% end %>
