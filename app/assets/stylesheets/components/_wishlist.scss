@@ -48,3 +48,17 @@
   line-height: 18px;
   color: #F88F42;
 }
+// Wishlistgift
+
+.wishlistgift-container {
+  position: relative;
+}
+
+.wishlistgift-image {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  right: 10px;
+  top: 9px;
+  filter: drop-shadow(3px 4px 4px rgba(0, 0, 0, 0.1));
+}

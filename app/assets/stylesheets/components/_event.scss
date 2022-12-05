@@ -11,12 +11,8 @@
 }
 // EVENT Show page
 .sharebtn{
-  border: 1px solid gray;
-  width: 93px;
-  border-radius: 10%;
-  padding-left: 5px;
-  font-size: 20px;
-  background-color: #F88F42;
+  color: #EF6D24;
+  font-weight: 500;
 }
 .sharebtn:hover{
   font-weight: bold;
@@ -24,4 +20,33 @@
 .sendicon{
   position: relative;
   top: 4px;
+}
+// Events container
+
+.events-container{
+  padding: 10px 0 0 70px;
+}
+
+.events-container a{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #EF6D24;
+}
+
+// Event container
+.event-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.event-container p{
+  padding: 0;
+  margin: 0;
+}
+
+.event-container img {
+  padding-right: 15px;
 }
