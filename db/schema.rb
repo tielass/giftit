@@ -171,6 +171,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_wishlistgifts_on_event_id"
     t.index ["gift_id"], name: "index_wishlistgifts_on_gift_id"
+
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -187,4 +188,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
   add_foreign_key "votings", "wishlistgifts"
   add_foreign_key "wishlistgifts", "events"
   add_foreign_key "wishlistgifts", "gifts"
+
 end
