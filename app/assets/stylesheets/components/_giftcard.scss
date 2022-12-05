@@ -21,9 +21,11 @@
 // Gift-grid
 
 .giftgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 6px;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+  display: flex;
+  overflow: scroll;
 }
 
 .giftgrid a{
