@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center my-4">
       <%= image_tag "event.jpg", class:"event-image" %>
     </div>
-    <%= f.input :photo, input_html: { hidden: true }, as: :file, label: 'Upload Attachment'%>
+    <%= f.input :photo, input_html: { hidden: true }, as: :file, label: 'Upload a picture', input_html:{class:"foto-form"}%>
     <%= f.input :name, input_html: {class:  "event-input"}, label: "Event's name" %>
     <%= f.input :start_time, input_html: {class:  "event-input"},  label: "Date",  html5: true %>
     <%= f.input :tag_list, input_html: {class:  "event-input"}, label: "Hobbies", class:"customLook", input_html: { data: { addhobby_target: "addHobby", action: "change->addhobby#addTag" } } %>
