@@ -77,6 +77,11 @@
   border: #F88F42;
 }
 
+.simple-calendar .today {
+  background: #F88F42;
+  color: #fff;
+}
+
 .day {
   height: 40px !important;
 }
@@ -113,4 +118,5 @@
   color: #fff;
   border-radius: 50%;
   padding: 10px;
+
 }
