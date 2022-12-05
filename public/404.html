@@ -4,16 +4,29 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    img{
-      width: 414px;
-      height: 896px;
+    html{
+      margin: 0;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+    }
+    .errorimg404{
+      height: 100vh;
+
+      src: "https://cdn.dribbble.com/users/1756402/screenshots/4238057/media/b95355daa71d1ca9edd9a91d4c418c8d.jpg";
+    }
+    @media screen and (min-width: 415px) {
+      .errorimg404{
+        height: 100vh;
+      }
     }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <img src="404.jpg" alt="error 404 image">
+  <img class="errorimg404" src="https://cdn.dribbble.com/users/1756402/screenshots/4238057/media/b95355daa71d1ca9edd9a91d4c418c8d.jpg" alt="error 404 image">
   <!-- <div class="dialog">
     <div>
       <h1>The page you were looking for doesn't exist.</h1>
