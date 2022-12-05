@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     # @gifts = Gift.where(category: params[:event_tags])
     @event = Event.find(params[:id])
     @gifts = Gift.where(category: @event.event_tags.pluck(:name))
+    @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
     @members = @event.members.where(event_id: @event.id).joins(:user)
   end
 
@@ -41,7 +42,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
-    redirect_to even_path(@event)
+    redirect_to event_path(@event)
   end
 
   def destroy

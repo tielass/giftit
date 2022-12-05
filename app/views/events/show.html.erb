@@ -19,15 +19,26 @@
         </div>
         </p>
         <div class="d-flex justify-content-between"> Saved gifts (6) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
+
         </div>
         <div class="cards d-flex justify-content-center">
           <div class="d-none cards" data-eventhobby-target="saved">
-            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/krapp-strapp_400x333.jpg)">
-            </div>
-            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/3d-printed-clippy-figurine_400x333.jpg)">
-            </div>
-            <div class="card-category-saved" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.thisiswhyimbroke.com/thumb/kid-trump-calendar_400x333.jpg)">
-            </div>
+
+         <div class="wishlist">
+          <% @wishlistgift.each do |wishlist| %>
+            <%= link_to gift_path(wishlist) do %>
+              <div class="wishlist-item">
+                <%= image_tag wishlist.gift.photo %>
+                <div class="wishlist-text">
+                  <p><%= wishlist.gift.name.first %> </p>
+                  <p class="wishlist-price">$<%= wishlist.gift.price.to_i %> </p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+
           </div>
         </div>
 
@@ -96,6 +107,7 @@
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.shuffle.sample(12).each do |gift| %>
+
             <div class="wishlistgift-container">
               <%= link_to do %>
                 <%= image_tag "heart.svg", class:"wishlistgift-image" %>
@@ -105,7 +117,7 @@
                   <%= image_tag gift.photo %>
                   <div class="wishlist-text">
                     <p><%= gift.name.first(10) %></p>
-                    <p class="wishlist-price">$<%= gift.price.to_i %></p>
+                    <p class="wishlist-price">$<%= gift.price.to_i %> | <%= link_to "Like", event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} %> </p>
                   </div>
                 </div>
               <% end %>
