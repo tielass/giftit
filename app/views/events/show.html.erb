@@ -56,9 +56,10 @@
 
 
         <div class="sharebtn d-flex p-1">
-        <i class="fa-solid fa-share-nodes sendicon"></i>
-        <%# <i class="fa-solid fa-share sendicon"></i> %>
-        <div class="cards" data-bs-toggle="modal" data-bs-target="#staticBackdrop">&nbsp;Share </div>
+          <i class="fa-solid fa-share-nodes sendicon"></i>
+          <div class="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            &nbsp;Share
+          </div>
         </div>
 
 <!-- Modal -->
@@ -104,17 +105,23 @@
 
 
         <h3 class="my-4"> Gift Suggestions</h3>
-        <div class="wishlist">
+        <div class="wishlist bottom-pushup">
           <% @gifts.shuffle.sample(12).each do |gift| %>
-            <%= link_to gift_path(gift) do %>
-              <div class="wishlist-item">
-                <%= image_tag gift.photo %>
-                <div class="wishlist-text">
-                  <p><%= gift.name.first(10) %> </p>
-                  <p class="wishlist-price">$<%= gift.price.to_i %> | <%= link_to "Like", event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} %> </p>
+
+            <div class="wishlistgift-container">
+              <%= link_to do %>
+                <%= image_tag "heart.svg", class:"wishlistgift-image" %>
+              <% end %>
+              <%= link_to gift_path(gift) do %>
+                <div class="wishlist-item">
+                  <%= image_tag gift.photo %>
+                  <div class="wishlist-text">
+                    <p><%= gift.name.first(10) %></p>
+                    <p class="wishlist-price">$<%= gift.price.to_i %> | <%= link_to "Like", event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} %> </p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>

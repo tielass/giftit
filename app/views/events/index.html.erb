@@ -3,8 +3,14 @@
 <div class="container text-center">
   <%= link_to "Add event", new_event_path, class:"btn-giftit my-5" %>
 </div>
- <div class="container text-center">
+  <h4 class="text-center">Upcoming events</h4>
+ <div class="container text-center events-container bottom-pushup">
   <% @events.each do |event| %>
-  <p><%= event.name %>on: <%= event.start_time.strftime("%a %e %b %y") %></p>
+    <div class="event-container my-3">
+      <%= image_tag "ellipse.svg" %>
+      <%= link_to event_path(event) do  %>
+        <p><%= event.name.capitalize %> on:   <%= event.start_time.strftime("%a %e %b %y") %></p>
+      <% end %>
+    </div>
   <% end %>
 </div>

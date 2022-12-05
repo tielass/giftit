@@ -8,12 +8,12 @@
       <%= image_tag @gift.photo %>
     </div>
     <div class="giftinfo">
-      <div class="card-title">
-        <%= @gift.price %>
+      <div class="card-text">
+        $<%= @gift.price %>
       </div>
       <br>
-      <div class="card-description">
-        <div>Product description:</div>
+      <div class="card-description bottom-pushup">
+        <div><strong>Product description:</strong></div>
         <%= @gift.description %>
       </div>
     </div>
