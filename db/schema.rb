@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_155539) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -165,19 +165,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_155539) do
 
   create_table "wishlistgifts", force: :cascade do |t|
     t.bigint "gift_id", null: false
-    t.bigint "wishlist_id", null: false
+    t.bigint "event_id", null: false
     t.boolean "chosen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_wishlistgifts_on_event_id"
     t.index ["gift_id"], name: "index_wishlistgifts_on_gift_id"
-    t.index ["wishlist_id"], name: "index_wishlistgifts_on_wishlist_id"
-  end
-
-  create_table "wishlists", force: :cascade do |t|
-    t.bigint "event_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_wishlists_on_event_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -192,7 +185,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_155539) do
   add_foreign_key "taggings", "tags"
   add_foreign_key "votings", "users"
   add_foreign_key "votings", "wishlistgifts"
+  add_foreign_key "wishlistgifts", "events"
   add_foreign_key "wishlistgifts", "gifts"
-  add_foreign_key "wishlistgifts", "wishlists"
-  add_foreign_key "wishlists", "events"
 end
