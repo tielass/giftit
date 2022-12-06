@@ -7,6 +7,16 @@
   text-align: start;
 }
 
+.chatroom-input {
+  outline: none;
+  background-color: #F9F3F0;
+}
+
+.form-control {
+  background: #FFFFFF;
+  border: none;
+}
+
 // Chat
 
 .chat {
@@ -31,8 +41,9 @@
 
 .chatinfo {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 
 .chatinfo img{

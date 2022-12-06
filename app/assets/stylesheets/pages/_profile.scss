@@ -1,7 +1,17 @@
 //navbar
+.profile-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
 .profileicons{
   font-size: 18pt;
   color: black;
+}
+
+.icons a{
+  padding: 0 5px;
+  text-decoration: none;
 }
 
 //profile
@@ -21,6 +31,20 @@
   align-items: center;
 }
 
+.profile-pic-input {
+  position: absolute;
+  top: 185px;
+  opacity: 0;
+}
+
+.profile-pic {
+  position: relative;
+}
+
+.profile-header {
+  padding: 0 170px 0 0;
+}
+
 //users event index
 .youreventinfo{
   padding-left: 5%;
@@ -37,9 +61,14 @@
   color: black;
   text-decoration: none;
 }
+.youreventinfo a{
+  text-decoration: none;
+}
+
 #yeventsheader{
-  text-align: start;
-  margin-left: 10%;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #554A48;
 }
 .hrevents{
   margin: 0 10%;
@@ -49,7 +78,7 @@
 }
 .youreventsimg{
   width: 20%;
-  height: 30%;
+  border-radius: 50%;
 }
 
 

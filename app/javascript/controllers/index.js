@@ -16,3 +16,5 @@ application.register("eventhobby", EventhobbyController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SaveGiftsController from "./savegifts_controller"
+application.register("savegifts", SaveGiftsController)

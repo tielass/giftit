@@ -1,31 +1,21 @@
-    <div class="pnav d-flex justify-content-between mt-3">
-      <h1>Profile</h1>
-      <div class="icons">
-        <%= link_to '#' do %>
-          <i class="fa-solid fa-pen profileicons"></i>
-        <% end %>
-        <%= link_to '#' do %>
-          <i class="fa-solid fa-gear profileicons "></i>
-        <% end %>
-      </div>
-    </div>
+    <%= render "shared/profilenavbar" %>
 
-<wholepage class="wholepage">
-  <profilepart>
+<div class="wholepage">
+  <div>
     <section class="infosection w-100">
-    <img id="pimg" class="mt-5" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile picture of the current user">
+    <img id="pimg" class="mt-5 profile-pic" src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile picture of the current user">
       <div class="pinfos mt-4">
-        <p><%= current_user.username %></p>
-        <p><%= current_user.email %></p>
+        <p class="fw-bold"><%= current_user.username.capitalize %></p>
+        <p class="sharebtn"><%= current_user.email %></p>
       </div>
     </section>
-  </profilepart>
+  </div>
 
-  <section class="eventsection mt-3">
+  <section class="eventsection mt-3 bottom-pushup">
   <h2 id="yeventsheader">Your events</h2>
     <% @events.each do |event| %>
 
-      <div class="yourevents d-flex w-80">
+      <div class="yourevents d-flex w-80 justify-content-between px-3">
         <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :fill %>
         <%# <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
         <div class="youreventinfo">
@@ -41,4 +31,4 @@
       <% end %>
   </section>
   <div>
-</wholepage>
+</div>

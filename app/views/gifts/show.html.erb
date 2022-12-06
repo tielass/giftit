@@ -1,6 +1,7 @@
 <%= render "shared/navbar" %>
+
 <div class="giftheadersolo">
-  <h3><%= @gift.name.capitalize %></h3>
+  <h3><%= @gift.name %></h3>
 </div>
 <div class="container">
   <div class="giftcardsolo">
@@ -9,11 +10,10 @@
     </div>
     <div class="giftinfo">
       <div class="card-text">
-        $<%= @gift.price %>
+        $<%= @gift.price.to_i %>
       </div>
       <br>
       <div class="card-description bottom-pushup">
-        <div><strong>Product description:</strong></div>
         <%= @gift.description %>
       </div>
     </div>
