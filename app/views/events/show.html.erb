@@ -50,13 +50,15 @@
         </div>
 
         <span> Members: </span>
+            <div class="d-flex">
           <% @members.each do |member| %>
             <% if member == @members.last %>
-              <span class="sharebtn"> <%= member.user.username %></span>
+             <span class="nowrap"><%= member.user.username %></span>
             <% else %>
-              <span> <%= member.user.username %><p>, &nbsp;</p></span>
+               <span class="nowrap"><%= member.user.username %></span><p>, &#160;&#160;</p>
             <% end %>
           <% end %>
+            </div>
 
 
 
