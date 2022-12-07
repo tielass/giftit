@@ -11,9 +11,9 @@
         <p class="text-center"> <strong><%= @event.start_time.strftime("%A, %d %b %Y") %></strong></p>
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
-          <% @event.event_tags.each do |tag| %>
+          <% @event.hobbies.split.each do |tag| %>
             <div class="show-hobbies">
-              <%= tag.name %>
+              <%= JSON.parse(tag).pluck("value").join("") %>
             </div>
           <% end %>
         </div>
@@ -98,11 +98,28 @@
   </div>
 </div>
 
+      <div data-controller="pricebutton">
+        <label  data-pricebutton-target="number" for="temp">Price: <%= @event.price %>$</label><br />
+<!--
+        <input data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
+        <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn btn-primary", data: {pricebutton_target: "button"} %>
+-->
 
-        <label for="temp">Price: <%= @event.price %>$</label><br />
-        <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
+<!--
+ <%= simple_form_for(@event) do |f|  %>
+    <%= f.input :price, as: :range, input_html:{ min:"0", max:"500", data: {action: "change->pricebutton#updateTextInput(this.value)"}} %>
+    <input type="text" id="textInput" value="">
+    <%= f.submit class: "btn btn-primary" %>
+ <% end %>
 
-
+-->
+<!--
+ <%= simple_form_for @event do |f| %>
+    <%= f.input :price, as: :range, input_html: { min: '0', step: 'any' } %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+<% end %>
+-->
+   </div>
 
 
         <h3 class="my-4"> Gift Suggestions</h3>

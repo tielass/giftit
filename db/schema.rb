@@ -163,7 +163,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
     t.index ["wishlistgift_id"], name: "index_votings_on_wishlistgift_id"
   end
 
- create_table "wishlistgifts", force: :cascade do |t|
+  create_table "wishlistgifts", force: :cascade do |t|
     t.bigint "gift_id", null: false
     t.bigint "event_id", null: false
     t.boolean "chosen"
@@ -185,5 +185,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
   add_foreign_key "taggings", "tags"
   add_foreign_key "votings", "users"
   add_foreign_key "votings", "wishlistgifts"
+  add_foreign_key "wishlistgifts", "events"
   add_foreign_key "wishlistgifts", "gifts"
 end
