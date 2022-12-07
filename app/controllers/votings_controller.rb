@@ -1,4 +1,3 @@
-require "pry"
 class VotingsController < ApplicationController
   def show
     @voting.user = current_user
