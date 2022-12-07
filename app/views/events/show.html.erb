@@ -12,6 +12,7 @@
       </div>
     </div>
     <div class="" data-controller="savegifts">
+
       <div class="" data-controller="eventhobby">
         <p class="text-center"> <strong><%= @event.start_time.strftime("%A, %d %b %Y") %></strong></p>
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
@@ -55,13 +56,15 @@
         </div>
 
         <span> Members: </span>
+            <div class="d-flex">
           <% @members.each do |member| %>
             <% if member == @members.last %>
-              <span class="sharebtn"> <%= member.user.username %></span>
+             <span class="nowrap"><%= member.user.username %></span>
             <% else %>
-              <span> <%= member.user.username %><p>, &nbsp;</p></span>
+               <span class="nowrap"><%= member.user.username %></span><p>, &#160;&#160;</p>
             <% end %>
           <% end %>
+            </div>
 
 
 
@@ -73,26 +76,26 @@
         </div>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modalbackground" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">invite a friend!</h1>
+      <div class="modal-header modalpopupheaderfield">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">invite a friend!</h1><i class="fa-regular fa-paper-plane"></i>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body modalpopupmainfield">
        <%= simple_form_for(User.new(), url: user_invitation_path) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :email %>
-          <%= f.input :username %>
+        <div class="form-inputs modalpopuplabel">
+          <%= f.input :email, :include_blank => true, placeholder: "friends emailadress" %>
+          <%= f.input :username, :include_blank => true, placeholder: "choose a username" %>
         </div>
 
         <div class="form-actions">
           <%= hidden_field_tag(:event, @event.id) %>
           <div class="" data-bs-dismiss="modal">
-            <%= f.button :submit, t("devise.invitations.new.submit_button") %>
+            <%= f.button :submit, t("devise.invitations.new.submit_button"),class:"modalsendbtn" %>
           </div>
         </div>
       <% end %>
@@ -104,8 +107,6 @@
 
         <label for="temp">Price: <%= @event.price %>$</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
-
-
 
 
         <h3 class="my-4"> Gift Suggestions</h3>
