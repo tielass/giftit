@@ -112,7 +112,6 @@
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
-
             <div class="wishlistgift-container">
               <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post, action: "click->savegifts#disconnect"} do %>
                 <%= image_tag "heart.svg", class:"wishlistgift-image", data: {savegifts_target: "remove"}%>
