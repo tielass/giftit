@@ -165,12 +165,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
 
   create_table "wishlistgifts", force: :cascade do |t|
     t.bigint "gift_id", null: false
-    t.bigint "event_id", null: false
+    t.bigint "wishlist_id", null: false
     t.boolean "chosen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_wishlistgifts_on_event_id"
     t.index ["gift_id"], name: "index_wishlistgifts_on_gift_id"
+    t.index ["wishlist_id"], name: "index_wishlistgifts_on_wishlist_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
