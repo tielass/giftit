@@ -1,4 +1,4 @@
-    <%= render "shared/profilenavbar" %>
+<%= render "shared/profilenavbar" %>
 
 <div class="wholepage">
   <div>
@@ -14,7 +14,6 @@
   <section class="eventsection mt-3 bottom-pushup">
   <h2 id="yeventsheader">Your events</h2>
     <% @events.each do |event| %>
-
       <div class="yourevents d-flex w-80 justify-content-between px-3">
         <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :fill %>
         <%# <%= cl_image_tag @event.photo.key, height: 100, width: 100, crop: :fill, :radius => 50 %>
@@ -30,5 +29,4 @@
       <hr class="hrevents">
       <% end %>
   </section>
-  <div>
 </div>

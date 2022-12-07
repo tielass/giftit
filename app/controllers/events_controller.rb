@@ -15,8 +15,9 @@ class EventsController < ApplicationController
         @wishlistgift.include?(wlg)
       end
     end
-
     @members = @event.members.where(event_id: @event.id).joins(:user)
+
+   
   end
 
   def new

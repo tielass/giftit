@@ -18,36 +18,41 @@
           <% end %>
         </div>
         </p>
-        <div class="d-flex justify-content-between wishlist"> Saved gifts (<%= @wishlistgift.size %>) <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
+        <div class="d-flex justify-content-between wishlist"> Saved gifts (<%= @wishlistgift.size %>)
+        <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displaySaved"></i>
 
         </div>
         <div class="my-3 d-flex justify-content-center">
           <div class="d-none " data-eventhobby-target="saved">
-<%# Wishlist %>
-         <div class="wishlist">
-
-            <% @wishlistgift.each do |wishlist| %>
-              <div class="wishlistgift-container">
-              <%= link_to "#" do %>
-                <%= image_tag "star.svg", class:"wishlistgift-image" %>
-              <% end %>
-              <%= link_to gift_path(wishlist.gift) do %>
-                <div class="wishlist-item">
-                  <%= image_tag wishlist.gift.photo %>
-                  <div class="wishlist-text">
-                    <p><%= wishlist.gift.name %> </p>
-                    <p class="wishlist-price">$<%= wishlist.gift.price.to_i %> </p>
+            <%# Wishlist %>
+            <div class="wishlist">
+                <% @wishlistgift.each do |wishlist| %>
+                <%# DATA CONTROLLER %>
+                  <div class="wishlistgift-container">
+                    <% vote = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
+                    <%= render "shared/starlink", vote: vote, wishlist: wishlist %>
+                    <%= link_to gift_path(wishlist.gift) do %>
+                      <div class="wishlist-item">
+                        <%= image_tag wishlist.gift.photo %>
+                        <div class="wishlist-text">
+                          <p><%= wishlist.gift.name.first(20) %> </p>
+                          <p class="wishlist-price">$<%= wishlist.gift.price.to_i %></p>
+                          <%# SCORE %>
+                          <%# <% @voting = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
+                          <%# <% @voting.user = current_user %>
+                          <%#= @voting.user.count %>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
-
-                </div>
-                <% end %>
+                  <% end %>
               </div>
-              <% end %>
-          </div>
-
-
-          </div>
-        </div>
+              <%# Gift It %>
+              <div class="container text-center">
+                <%= link_to "Gift It!", "#", class:"btn-giftit my-5" %>
+              </div>
+            </div>
+         </div>
 
         <span> Members: </span>
           <% @members.each do |member| %>
@@ -106,16 +111,17 @@
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
-
-            <div class="wishlistgift-container" data-controller="savegifts" data-savegifts-target="save">
+            <div class="wishlistgift-container"
+            data-controller="savegifts"
+            data-savegifts-target="save">
+              <%= link_to gift_path(gift) do %>
               <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} do %>
                 <%= image_tag "heart.svg", class:"wishlistgift-image" %>
               <% end %>
-              <%= link_to gift_path(gift) do %>
                 <div class="wishlist-item" data-action="click->savegifts#togglegifts">
                   <%= image_tag gift.photo %>
                   <div class="wishlist-text">
-                    <p><%= gift.name %></p>
+                    <p><%= gift.name.first(20) %></p>
                     <p class="wishlist-price">$<%= gift.price.to_i %> </p>
                   </div>
                 </div>

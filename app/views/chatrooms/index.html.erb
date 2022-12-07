@@ -10,7 +10,7 @@
       <%= link_to chatroom_path(chatroom) do %>
 
         <div class="chatinfo">
-          <%= image_tag chatroom.event.photo %>
+          <%= cl_image_tag chatroom.event.photo.key %>
           <div class="chattext">
             <p><%= chatroom.name.capitalize %></p>
             <p><%= chatroom.event.start_time.strftime("%A, %d %b %Y") %></p>
