@@ -5,7 +5,7 @@
       <div class="center">
         <%= cl_image_tag @event.photo.key, height: 131, width: 131, crop: :fill, :radius => 50 %>
       </div>
-    </div>
+      </div>
     <div class="">
       <div class="" data-controller="eventhobby">
         <p class="text-center"> <strong><%= @event.start_time.strftime("%A, %d %b %Y") %></strong></p>
@@ -101,8 +101,6 @@
 
         <label for="temp">Price: <%= @event.price %>$</label><br />
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
-
-
 
 
         <h3 class="my-4"> Gift Suggestions</h3>

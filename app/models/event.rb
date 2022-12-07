@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   has_many :wishlistgifts
   validates_numericality_of :price, :greater_than => 0
   validates :name, :start_time, :price, presence: true
+  validates :photo, presence: true
   has_one_attached :photo
   acts_as_taggable_on :tags
   # acts_as_taggable_on :hobbies
