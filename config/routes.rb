@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :events do
     resources :wishlistgifts, only: %i[index create]
   end
+  resources :wishlistgifts, only: %i[] do
+    resources :votings, only: %i[create show]
+  end
+  resources :votings, only: %i[destroy]
   resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create
   end

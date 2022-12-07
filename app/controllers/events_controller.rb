@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     target_event = params[:id]
     price_range = params[:eventidprice].present? ? params[:eventidprice] : params[:eventidpriceprice]
 
-
+  # @members = @event.members.where(event_id: @event.id).joins(:user)
  if target_event.present? && price_range.present?
 
 
@@ -30,6 +30,11 @@ class EventsController < ApplicationController
         @wishlistgift.include?(wlg)
       end
     end
+
+    
+
+   
+
 
     else
 
@@ -51,6 +56,7 @@ class EventsController < ApplicationController
 
 
     @members = @event.members.where(event_id: @event.id).joins(:user).select(('DISTINCT user_id'))
+
   end
 
   def new
