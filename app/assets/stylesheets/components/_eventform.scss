@@ -24,10 +24,19 @@
 
 .event-image {
   border-radius: 50%;
-  width: 131px;
-  height: 131px;
+  width: 133px;
+  height: 133px;
+  position: relative;
 }
+#upload-image{
+  border-radius: 50%;
+  width: 135px !important;
+  height: 135px !important;
+  position: absolute;
+  top: 102px;
+  left: 140px;
 
+}
 .bottom-pushup {
   margin-bottom: 150px;
 }
