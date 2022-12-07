@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["remove"]
   connect() {
-    console.log("Save gift log")
+    // console.log("Save gift log")
   }
 
   removegifts(event) {

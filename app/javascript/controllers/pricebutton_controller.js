@@ -7,8 +7,8 @@ static targets = ["number", "button"]
 static values = { price: Number }
 
   connect() {
-    console.log(this.priceValue)
-    console.log(this.buttonTarget.href)
+    // console.log(this.priceValue)
+    // console.log(this.buttonTarget.href)
 
   }
 
@@ -17,6 +17,7 @@ static values = { price: Number }
     let range = document.querySelector("#temp")
     this.numberTarget.innerText = `Price ${range.value} $`
     let hrefArray = this.buttonTarget.href.split("=")
+    console.log(hrefArray);
     hrefArray.pop()
     hrefArray.push(`price=${range.value}`)
     let finalUrl = hrefArray.join("")
@@ -24,12 +25,19 @@ static values = { price: Number }
   }
 
   sendRequest(event) {
-    console.log(this.buttonTarget.href)
+    // event.preventDefault()
+    console.log(this.buttonTarget)
+    console.log("fefefefef")
+    console.log(this.numberTarget.innerText)
+
+    // fetch request with method PATCH to update the value
+
+    // reload the page
   }
 
   updateTextInput() {
    // document.getElementById('textInput').value=val;
-    console.log("this is me")
+    // console.log("this is me")
   }
 
 }

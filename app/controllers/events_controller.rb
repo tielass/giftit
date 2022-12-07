@@ -8,17 +8,18 @@ class EventsController < ApplicationController
 
   def show
     target_event = params[:id]
- price_range = params[:eventidprice]
+    price_range = params[:eventidprice].present? ? params[:eventidprice] : params[:eventidpriceprice]
+
 
  if target_event.present? && price_range.present?
 
 
-    @event = Event.find(params[:id])
-    # @gifts = Gift.where(category: @event.event_tags.pluck(:name))
-    @gifts =  Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
-    @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
-    @event.price = price_range.to_i
-    @event.save!
+  @event = Event.find(params[:id])
+  # @gifts = Gift.where(category: @event.event_tags.pluck(:name))
+  @gifts =  Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
+  @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
+  @event.price = price_range.to_i
+  @event.save!
 
     @filtiergifts = @gifts.reject do |filtergift|
       filtergift.price > price_range.to_i
@@ -49,7 +50,7 @@ class EventsController < ApplicationController
   end
 
 
-    @members = @event.members.where(event_id: @event.id).joins(:user)
+    @members = @event.members.where(event_id: @event.id).joins(:user).select(('DISTINCT user_id'))
   end
 
   def new
