@@ -26,8 +26,6 @@ application.register("toggle-stars", ToggleStarsController)
 import PricebuttonController from "./pricebutton_controller"
 application.register("pricebutton", PricebuttonController)
 
-import SavegiftsController from "./savegifts_controller"
-application.register("savegifts", SavegiftsController)
-
 import PhotoPreviewController from "./photo_preview_controller"
 application.register("photo-preview", PhotoPreviewController)
+
