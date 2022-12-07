@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_image, cl_image_path(@event.photo.key) if @event.photo.present? %>
+<%# data-controller="savegifts" %>
+<%# data-savegifts-target="save" %>
+<%# data-action="click->savegifts#togglegifts" %>
 <div class="d-flex justify-content-center flex-nowrap m-5">
   <div class="event w-75">
     <h1><%= @event.name %> </h1> <%#= link_to "Delete", delete_path(@event) %>
@@ -6,7 +11,8 @@
         <%= cl_image_tag @event.photo.key, height: 131, width: 131, crop: :fill, :radius => 50 %>
       </div>
     </div>
-    <div class="">
+    <div class="" data-controller="savegifts">
+
       <div class="" data-controller="eventhobby">
         <p class="text-center"> <strong><%= @event.start_time.strftime("%A, %d %b %Y") %></strong></p>
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
@@ -98,6 +104,7 @@
   </div>
 </div>
 
+
       <div data-controller="pricebutton">
         <label  data-pricebutton-target="number" for="temp">Price: <%= @event.price %>$</label><br />
 <!--
@@ -122,16 +129,20 @@
    </div>
 
 
+        <label for="temp">Price: <%= @event.price %>$</label><br />
+        <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
+
+
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
 
-            <div class="wishlistgift-container" data-controller="savegifts" data-savegifts-target="save">
-              <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} do %>
-                <%= image_tag "heart.svg", class:"wishlistgift-image" %>
+            <div class="wishlistgift-container">
+              <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post, action: "click->savegifts#disconnect"} do %>
+                <%= image_tag "heart.svg", class:"wishlistgift-image", data: {savegifts_target: "remove"}%>
               <% end %>
               <%= link_to gift_path(gift) do %>
-                <div class="wishlist-item" data-action="click->savegifts#togglegifts">
+                <div class="wishlist-item">
                   <%= image_tag gift.photo %>
                   <div class="wishlist-text">
                     <p><%= gift.name %></p>
