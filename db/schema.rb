@@ -185,5 +185,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_102307) do
   add_foreign_key "taggings", "tags"
   add_foreign_key "votings", "users"
   add_foreign_key "votings", "wishlistgifts"
+  add_foreign_key "wishlistgifts", "events"
   add_foreign_key "wishlistgifts", "gifts"
 end

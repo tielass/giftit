@@ -1,0 +1,4 @@
+meta_name: "GiftIt"
+meta_title: "GiftIt - choose the best gift"
+meta_description: "GiftIt allows users to create events for different occasions such as birthdays, Christmas and choose a gift from selected categories"
+meta_image: "favicon.ico" # should exist in `app/assets/images/`

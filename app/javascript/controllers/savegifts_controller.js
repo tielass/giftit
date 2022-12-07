@@ -2,14 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="save-gifts"
 export default class extends Controller {
-  static targets = ["save"]
+  static targets = ["remove"]
   connect() {
     console.log("Save gift log")
   }
 
-  togglegifts(event) {
-    event.preventDefault(event);
-    event.currentTarget.remove(this.eventTarget);
+  removegifts(event) {
+    event.preventDefault();
+    console.log("Function log")
+    event.currentTarget.remove();
     //this.saveTarget.classList.add("d-none")
     //this.saveTarget.classList.remove("d-none")
     //event.currentTarget.classlist.add("d-none")
@@ -18,9 +19,10 @@ export default class extends Controller {
     //})
     }
     //console.log("method applied")
-    //event.preventDefault();
+
     //this.hobbyTarget.classList.toggle("d-none")
-  //disconnect() {
-  //  $(this.data.get('removeSelector')).remove()
-  //}
+
+    disconnect() {
+      $(this.data.get('removeSelector')).remove()
+    }
 }
