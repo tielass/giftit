@@ -13,23 +13,28 @@
 
   <section class="eventsection mt-3 bottom-pushup">
   <h2 id="yeventsheader">Your events</h2>
-    <% @events.each do |event| %>
-      <div class="yourevents d-flex w-80 justify-content-between px-3">
-    <% if event.photo.attached? %>
+    <% @joinedevents.each do |event| %>
+
+      <%# <%= link_to event_path(event) do %>
+        <div class="yourevents d-flex w-80 justify-content-around px-3">
+      <% if event.photo.attached? %>
         <%= cl_image_tag event.photo.key, class: "youreventsimg", crop: :fill %>
-     <% else %>
-        <%=  image_tag("event.jpg", class: "youreventsimg") %>
-     <% end %>
-        <div class="youreventinfo">
-          <%= link_to event_path(event) do %>
-            <p><%= event.name %></p>
-          <% end %>
-          <%= link_to event_path(event) do %>
-            <p><%= event.start_time.strftime("%m/%d/%Y") %></p>
-          <% end %>
-        </div>
-      </div>
-      <hr class="hrevents">
+      <% else %>
+        <%= link_to event_path(event) do %>
+          <%=  image_tag("event.jpg", class: "youreventsimg") %>
+        <% end %>
       <% end %>
+          <div class="youreventinfo">
+            <%= link_to event_path(event) do %>
+              <p><%= event.name %></p>
+            <% end %>
+            <%= link_to event_path(event) do %>
+              <p><%= event.start_time.strftime("%m/%d/%Y") %></p>
+            <% end %>
+          </div>
+        </div>
+        <hr class="hrevents">
+      <%# <% end %>
+    <% end %>
   </section>
 </div>
