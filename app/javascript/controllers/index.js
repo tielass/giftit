@@ -28,3 +28,6 @@ application.register("pricebutton", PricebuttonController)
 
 import SavegiftsController from "./savegifts_controller"
 application.register("savegifts", SavegiftsController)
+
+import PhotoPreviewController from "./photo_preview_controller"
+application.register("photo-preview", PhotoPreviewController)
