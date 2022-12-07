@@ -114,7 +114,7 @@
         <label  data-pricebutton-target="number" for="temp">Price: <%= @event.price.to_i %>$</label><br />
         <input class="slider my-4", data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
         <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn-giftit-small", data: {pricebutton_target: "button", action: "click->pricebutton#sendRequest"} %>
-
+      </div>
 <!--
 
  <%= simple_form_for(@event) do |f|  %>
@@ -134,7 +134,7 @@
    </div>
 
 
-        <!--
+
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
 -->
 
