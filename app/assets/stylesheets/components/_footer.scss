@@ -5,12 +5,11 @@
 // }
 
 footer {
-  padding-top: 6px;
   height: 80px;
   border-radius: 10px 10px 0 0;
   background: #F88F42;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #fff;
 }
@@ -27,6 +26,19 @@ footer a:hover {
   height: 100%;
 }
 
-.active {
+a.active {
   background-color: #EF6D24;
+  height: 100%;
+}
+
+a.active:first-child {
+  background-color: #EF6D24;
+  height: 100%;
+  border-radius: 10px 0 0 0;
+}
+
+a.active:last-child {
+  background-color: #EF6D24;
+  height: 100%;
+  border-radius: 0 10px 0 0;
 }
