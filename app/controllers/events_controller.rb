@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @events = Event.where(
       start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
-    @events = Event.all.where(user: current_user).joins(:members).where(user: current_user)
+    @events = Event.joins(:members).where(user: current_user)
   end
 
   def show
@@ -19,8 +19,8 @@ class EventsController < ApplicationController
     @event.price = price_range.to_i
     @event.save!
 
-    @filteredgifts = @gifts.reject do |filtergift|
-      filtergift.price > price_range.to_i
+    @filtiergifts = @gifts.reject do |filtergift|
+    filtergift.price > price_range.to_i
     end
 
     @gifts = @filtergifts.reject do |gift|
@@ -35,11 +35,11 @@ class EventsController < ApplicationController
       @gifts =  Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
       @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
 
-      @filteredgifts = @gifts.reject do |filtergift|
+      @filtiergifts = @gifts.reject do |filtergift|
         filtergift.price > @event.price
       end
 
-      @gifts = @filteredgifts.reject do |gift|
+        @gifts = @filtiergifts.reject do |gift|
         gift.wishlistgifts.any? do |wlg|
           @wishlistgift.include?(wlg)
         end
