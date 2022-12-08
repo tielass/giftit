@@ -18,8 +18,10 @@
         <div class="d-flex justify-content-between"> Hobbies: <i class="fa-solid fa-sort-down" data-action="click->eventhobby#displayHobby"></i></div>
         <div class="d-none" data-eventhobby-target="hobby">
           <% @event.hobbies.split.each do |tag| %>
-            <div class="show-hobbies">
-              <%= JSON.parse(tag).pluck("value").join("") %>
+            <div>
+              <% JSON.parse(tag).pluck("value").each do |hobby| %>
+              <span class="show-hobbies"><%= hobby %></span>
+              <% end %>
             </div>
           <% end %>
         </div>
