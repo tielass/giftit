@@ -5,7 +5,7 @@
 </div>
   <h4 class="text-center">Upcoming events</h4>
  <div class="container text-center events-container bottom-pushup">
-  <% @events.each do |event| %>
+    <% @events.each do |event| %>
     <div class="event-container my-3">
       <%= image_tag "ellipse.svg" %>
       <%= link_to event_path(event) do  %>
