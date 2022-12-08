@@ -1,24 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
+import { createConsumer } from "@rails/actioncable"
 
-// Connects to data-controller="save-gifts"
 export default class extends Controller {
-  static targets = ["remove"]
+  static targets = ["remove", "card"]
   connect() {
-    // console.log("Save gift log")
+    console.log("Connected");
+    this.channel = createConsumer().subscriptions.create(
+      { channel: "GiftsChannel", id: this.giftsIdValue },
+      { received: data => this.#ScrollDown(data) }
+    )
+    console.log(`Log: ${this.giftsIdValue}.`)
   }
 
   removegifts(event) {
+    console.log("Removing..");
     event.preventDefault();
-    console.log("Function log")
     event.currentTarget.remove();
-    //this.saveTarget.classList.add("d-none")
-    //this.saveTarget.classList.remove("d-none")
-    //event.currentTarget.classlist.add("d-none")
-    //.then((data) => {
-    //  this.saveTarget.outerHTML = data
-    //})
     }
-    //console.log("method applied")
 
-    //this.hobbyTarget.classList.toggle("d-none")
+    #ScrollDown(data) {
+      console.log("Scrolling down");
+      this.removeTarget.scrollTo(0, this.removeTarget.scrollHeight)
+    }
 }

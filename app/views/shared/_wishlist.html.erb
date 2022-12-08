@@ -1,0 +1,19 @@
+<div>
+
+  <% if gift.present? %>
+    <%= link_to event_wishlistgifts_path(event, gift_params: gift.id), data: {savegifts_target: "remove", action: "click->savegifts#createWishlist"} do %>
+      <%= image_tag "heart.svg", class:"wishlistgift-image" %>
+    <% end %>
+  <% end %>
+</div>
+
+    <%#= link_to event_path(event, :gift_params => gift.id), data: {turbo_method: "post", savegifts_target: "remove", action: "click->savegifts#createWishlist"} do %>
+      <%#= image_tag "heart.svg", class:"wishlistgift-image" %>
+    <%# end %>
+    <%#= link_to event_path(event, :gift_params => gift.id), data: {turbo_method: "delete", savegifts_target: "remove", action: "click->savegifts#deleteWishlist"} do %>
+      <%#= image_tag "heart.svg", class:"wishlistgift-image" %>
+    <%# end %>
+
+    <%#= link_to event_wishlistgifts_path(@event, :gift_params => @gift.id), data: {turbo_method: "post", action: "click->savegifts#createWishlist"} do %>
+      <%#= image_tag "heart.svg", class:"wishlistgift-image", data: {savegifts_target: "remove"}%>
+    <%# end %>
