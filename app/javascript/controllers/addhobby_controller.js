@@ -9,16 +9,15 @@ export default class extends Controller {
     new Tagify(this.addHobbyTarget, {
       whitelist: [ "Technology",
                     "Chocolate",
-                    "Food",
+                    "Wildcard",
                     "Cooking",
                     "Running",
                     "Hiking",
-                    "Perfume",
                     "Practical",
-                    "Subscriptions",
-                    "Wellness",
+                    "Perfume",
                     "Yoga",
-                    "Wildcard"],
+                    "Wellness",
+                    ],
       dropdown: {
         position: "input",
         enabled : 0 // always opens dropdown when input gets focus
