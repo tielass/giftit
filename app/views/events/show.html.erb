@@ -138,9 +138,10 @@
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
+            <%= content_tag :div, id: dom_id(gift) do %>
             <div class="wishlistgift-container">
-              <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post, action: "click->savegifts#disconnect"} do %>
-                <%= image_tag "heart.svg", class:"wishlistgift-image", data: {savegifts_target: "remove"}%>
+              <%= link_to event_wishlistgifts_path(@event, :gift_params => gift.id), data: {turbo_method: :post} do %>
+                <%= image_tag "heart.svg", class:"wishlistgift-image" %>
               <% end %>
               <%= link_to gift_path(gift) do %>
                 <div class="wishlist-item">
@@ -152,6 +153,7 @@
                 </div>
               <% end %>
             </div>
+              <% end %>
           <% end %>
         </div>
       </div>
