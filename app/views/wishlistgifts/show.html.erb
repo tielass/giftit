@@ -1,0 +1,21 @@
+<%= render "shared/navbar" %>
+<div class="giftheadersolo">
+  <h3><%= @wishlistgift.gift.name %></h3>
+</div>
+<div class="container">
+  <div class="giftcardsolo">
+    <div class="giftimage">
+      <%= image_tag @wishlistgift.gift.photo %>
+    </div>
+    <div class="giftinfo">
+      <div class="card-text d-flex justify-content-around">
+        <button class="btn btn-giftit-wishlist">GiftMe!</button>
+        <div style="margin: auto 0;">$<%= @wishlistgift.gift.price.to_i %></div>
+      </div>
+      <br>
+      <div class="card-description bottom-pushup">
+        <%= @wishlistgift.gift.description %>
+      </div>
+    </div>
+  </div>
+</div>

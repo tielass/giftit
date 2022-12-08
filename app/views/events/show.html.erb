@@ -37,7 +37,7 @@
                   <div class="wishlistgift-container">
                     <% vote = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
                     <%= render "shared/starlink", vote: vote, wishlist: wishlist %>
-                    <%= link_to gift_path(wishlist.gift) do %>
+                    <%= link_to event_wishlistgift_path(@event, wishlist) do %>
                       <div class="wishlist-item">
                         <%= image_tag wishlist.gift.photo %>
                         <div class="wishlist-text">
