@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @events = Event.where(
       start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
-    @events = Event.all.where(user: current_user).joins(:members).where(user: current_user)
+    @events = Event.joins(:members).where(user: current_user)
   end
 
   def show
