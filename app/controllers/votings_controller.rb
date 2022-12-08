@@ -1,3 +1,4 @@
+require "pry"
 class VotingsController < ApplicationController
   def show
     @voting.user = current_user
@@ -8,6 +9,7 @@ class VotingsController < ApplicationController
 
   def create
     @wishlistgift = Wishlistgift.find(params[:wishlistgift_id])
+    @event = @wishlistgift.event
     @voting = Voting.new(wishlistgift_id: @wishlistgift.id)
     @voting.user = current_user
     @voting.save
@@ -17,6 +19,7 @@ class VotingsController < ApplicationController
   def destroy
     @voting = Voting.find(params[:id])
     @wishlistgift = @voting.wishlistgift
+    @event = @wishlistgift.event
     @voting.delete
     render layout: false
   end

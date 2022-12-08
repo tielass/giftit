@@ -8,4 +8,18 @@
       <%= image_tag "star.svg", class:"wishlistgift-image" %>
     <% end %>
   <% end %>
+  <%= link_to event_wishlistgift_path(event, wishlist) do %>
+    <div class="wishlist-item">
+      <%= image_tag wishlist.gift.photo %>
+      <div class="wishlist-text">
+        <p><%= wishlist.gift.name.first(20) %> </p>
+        <p class="wishlist-price">$<%= wishlist.gift.price.to_i %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if wishlist.votings.count == 1 %>
+    <p class="wishlist-votes"><%= wishlist.votings.count %> vote</p>
+  <% else %>
+    <p class="wishlist-votes"><%= wishlist.votings.count %> votes</p>
+  <% end %>
 </div>
