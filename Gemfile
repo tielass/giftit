@@ -30,6 +30,8 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+gem "pry"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -48,6 +50,7 @@ gem "sassc-rails"
 gem "simple_calendar", "~> 2.4"
 gem "cloudinary"
 gem 'acts-as-taggable-on', '~> 9.0'
+gem 'active_link_to'
 # gem 'mailcatcher'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

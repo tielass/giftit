@@ -1,26 +1,34 @@
 <footer class="fixed-bottom">
-    <%= link_to gifts_path, class:"" do %>
-      <div class="footer-box">
-      <%= image_tag "home.svg" %>
-      <p>Home</p>
+    <%= active_link_to gifts_path, active: :inclusive do %>
+      <div class="container">
+        <div class="footer-box">
+          <%= image_tag "home.svg" %>
+          <p>Home</p>
+        </div>
       </div>
     <% end %>
-    <%= link_to new_event_path, class:"" do %>
-      <div class="footer-box">
-      <%= image_tag "gift.svg" %>
-      <p>Gift</p>
+    <%= active_link_to new_event_path, active: :exclusive do %>
+      <div class="container">
+        <div class="footer-box">
+          <%= image_tag "gift.svg" %>
+          <p>Gift</p>
+        </div>
       </div>
     <% end %>
-    <%= link_to chatrooms_path, class:"" do %>
-      <div class="footer-box">
-      <%= image_tag "chat.svg" %>
-      <p>Chat</p>
+    <%= active_link_to chatrooms_path,active: :exclusive do %>
+      <div class="container">
+        <div class="footer-box">
+          <%= image_tag "chat.svg" %>
+          <p>Chat</p>
+        </div>
       </div>
     <% end %>
-    <%= link_to events_path, class:"" do %>
-      <div class="footer-box">
-      <%= image_tag "calendar.svg" %>
-      <p>Calendar</p>
+    <%= active_link_to events_path, active: :exclusive do %>
+      <div class="container">
+        <div class="footer-box">
+          <%= image_tag "calendar.svg" %>
+          <p>Calendar</p>
+        </div>
       </div>
     <% end %>
 </footer>

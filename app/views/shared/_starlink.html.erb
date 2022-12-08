@@ -1,0 +1,11 @@
+<div data-controller="toggle-stars", data-toggle-stars-star-token-value="<%= form_authenticity_token %>">
+  <% if vote.present? %>
+    <%= link_to voting_path(vote), data: { turbo_method: "delete", toggle_stars_target: "star", action: "click->toggle-stars#deleteStar" } do %>
+      <%= image_tag "starfilled.svg", class:"wishlistgift-image" %>
+    <% end %>
+  <% else %>
+    <%= link_to wishlistgift_votings_path(wishlist), data: { turbo_method: "post", toggle_stars_target: "star",  action: "click->toggle-stars#createStar" } do %>
+      <%= image_tag "star.svg", class:"wishlistgift-image" %>
+    <% end %>
+  <% end %>
+</div>

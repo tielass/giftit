@@ -21,8 +21,4 @@ export default class extends Controller {
     //console.log("method applied")
 
     //this.hobbyTarget.classList.toggle("d-none")
-
-    disconnect() {
-      $(this.data.get('removeSelector')).remove()
-    }
 }
