@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     filtergift.price > price_range.to_i
     end
 
-    @gifts = @filtergifts.reject do |gift|
+    @gifts = @filtiergifts.reject do |gift|
       gift.wishlistgifts.any? do |wlg|
         @wishlistgift.include?(wlg)
       end
