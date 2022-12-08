@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_many :wishlistgifts
   validates_numericality_of :price, :greater_than => 0
   validates :name, :start_time, :price, presence: true
-  validates :name, length: { minimum: 5, maximum: 15 }
+  # validates :name, length: { minimum: 5, maximum: 15 }
   validates :photo, presence: true
 
   has_one_attached :photo

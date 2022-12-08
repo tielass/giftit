@@ -43,8 +43,6 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  // margin: 50px auto 200px auto;
-
 }
 
 .foto-form {
@@ -53,7 +51,9 @@
   background-color: transparent;
   opacity: 0;
 }
-
+#upload-image{
+  display: none ;
+}
 .file {
   text-align: center !important;
   opacity: 0;

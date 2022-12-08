@@ -3,13 +3,12 @@
 
 
   <div class="chatroombox">
-
-    <% @chatrooms.each do |chatroom| %>
+    <% @chatrooms.uniq.each do |chatroom| %>
 
     <div class="chat">
       <%= link_to chatroom_path(chatroom) do %>
 
-        <div class="chatinfo">      
+        <div class="chatinfo">
         <% if chatroom.event.photo.attached? %>
           <%= cl_image_tag chatroom.event.photo.key %>
         <% else %>
