@@ -36,20 +36,8 @@
                 <%# DATA CONTROLLER %>
                   <div class="wishlistgift-container">
                     <% vote = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
-                    <%= render "shared/starlink", vote: vote, wishlist: wishlist %>
-                    <%= link_to event_wishlistgift_path(@event, wishlist) do %>
-                      <div class="wishlist-item">
-                        <%= image_tag wishlist.gift.photo %>
-                        <div class="wishlist-text">
-                          <p><%= wishlist.gift.name.first(20) %> </p>
-                          <p class="wishlist-price">$<%= wishlist.gift.price.to_i %></p>
-                          <%# SCORE %>
-                          <%# <% @voting = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
-                          <%# <% @voting.user = current_user %>
-                          <%#= @voting.user.count %>
-                        </div>
-                      </div>
-                    <% end %>
+                    <%= render "shared/starlink", vote: vote, wishlist: wishlist, event: @event %>
+
                   </div>
                   <% end %>
               </div>
