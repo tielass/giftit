@@ -5,11 +5,6 @@ export default class extends Controller {
   static targets = ["remove", "card"]
   connect() {
     console.log("Connected");
-    this.channel = createConsumer().subscriptions.create(
-      { channel: "GiftsChannel", id: this.giftsIdValue },
-      { received: data => this.#ScrollDown(data) }
-    )
-    console.log(`Log: ${this.giftsIdValue}.`)
   }
 
   removegifts(event) {
