@@ -5,6 +5,10 @@ class WishlistgiftsController < ApplicationController
     @wishlistgift = Wishlistgift.all
   end
 
+  def show
+    @wishlistgift = Wishlistgift.find(params[:id])
+  end
+
   def create
     @event = Event.find(params[:event_id])
     @gift = Gift.find(params[:gift_params])

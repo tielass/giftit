@@ -37,7 +37,7 @@
                   <div class="wishlistgift-container">
                     <% vote = Voting.find_by(user: current_user, wishlistgift: wishlist) %>
                     <%= render "shared/starlink", vote: vote, wishlist: wishlist %>
-                    <%= link_to gift_path(wishlist.gift) do %>
+                    <%= link_to event_wishlistgift_path(@event, wishlist) do %>
                       <div class="wishlist-item">
                         <%= image_tag wishlist.gift.photo %>
                         <div class="wishlist-text">
@@ -112,17 +112,20 @@
 
       <div data-controller="pricebutton">
         <label  data-pricebutton-target="number" for="temp">Price: <%= @event.price.to_i %>$</label><br />
+<!--
+        <input data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
+        <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn btn-primary", data: {pricebutton_target: "button", action: "click->pricebutton#sendRequest"} %>
+-->
         <input class="slider my-4", data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
         <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn-giftit-small", data: {pricebutton_target: "button", action: "click->pricebutton#sendRequest"} %>
       </div>
-<!--
 
+<!--
  <%= simple_form_for(@event) do |f|  %>
     <%= f.input :price, as: :range, input_html:{ min:"0", max:"500", data: {action: "change->pricebutton#updateTextInput(this.value)"}} %>
     <input type="text" id="textInput" value="">
     <%= f.submit class: "btn btn-primary" %>
  <% end %>
-
 -->
 <!--
   <label for="temp">Price: $<%= @event.price %></label><br />
@@ -130,14 +133,10 @@
     <%= f.input :price, as: :range, input_html: { min: '0', step: 'any' }, label: "" %>
     <%= f.button :submit, class:"btn btn-primary" %>
 <% end %>
-
    </div>
-
-
-
+        <!--
         <input type="range" id="temp" name="temp" list="tickmarks" value="<%= @event.price %>" />
 -->
-
         <h3 class="my-4"> Gift Suggestions</h3>
         <div class="wishlist bottom-pushup">
           <% @gifts.each do |gift| %>
