@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event.price = price_range.to_i
     @event.save!
 
-    @filtiergifts = @gifts.reject do |filtergift|
+    @filteredgifts = @gifts.reject do |filtergift|
       filtergift.price > price_range.to_i
     end
 
@@ -35,11 +35,11 @@ class EventsController < ApplicationController
       @gifts =  Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
       @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
 
-      @filtiergifts = @gifts.reject do |filtergift|
+      @filteredgifts = @gifts.reject do |filtergift|
         filtergift.price > @event.price
       end
 
-      @gifts = @filtiergifts.reject do |gift|
+      @gifts = @filteredgifts.reject do |gift|
         gift.wishlistgifts.any? do |wlg|
           @wishlistgift.include?(wlg)
         end

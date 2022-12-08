@@ -6,7 +6,7 @@
     </div>
     <div data-controller="photo-preview">
       <%= image_tag "", data: {photo_preview_target: "img"}, id:"upload-image" %>
-      <%= f.input :photo,  as: :file, label: 'Upload a picture', input_html:{class:"foto-form", data: {action: "photo-preview#change", photo_preview_target: "input"}}%>
+      <%= f.input :photo, as: :file, label: 'Upload a picture', input_html:{class:"foto-form", data: {action: "photo-preview#change", photo_preview_target: "input"}}%>
     </div>
     <%= f.input :name, input_html: {class:  "event-input"}, label: "Event's name" %>
     <%= f.input :start_time, input_html: {class:  "event-input"},  label: "Date",  html5: true %>
