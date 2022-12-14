@@ -3,19 +3,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about-the-project">About The Project</a> </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
 
@@ -24,9 +15,13 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-GiftIt is designed for mobile visitors
+GiftIt is an app to simplify the process of buying gifts as a group. We all know the stress 
+of trying to choose presents for family, friends or colleagues. With GiftIt, you can manage 
+the entire process in one application - from choosing the best gift to splitting the bill, and 
+everything in between!
 
-
+<!-- ACKNOWLEDGMENTS -->
+Please note that that the app is designed for mobile view. Also, to explore the full functionality of creating an event, the user has to have an account, however, the email can be fake and doesn't need to be verified.
 
 ### Built With
 
