@@ -33,9 +33,10 @@ GiftIt is designed for mobile visitors
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Ruby on Rails][rubyonrails.org][Ruby-url]
-* [![SCSS][CSS]][CSS-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Stimulus JS][stimulus.hotwired.dev][Stimulus-url]
+*   ![HTML5](https://img.shields.io/badge/HTML5%20-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+*   ![CSS3](https://img.shields.io/badge/CSS%20-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+*   ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+* 	![Heroku](https://camo.githubusercontent.com/19764c8c39927763a01a6468b533a874ecc23d80143f9ae260eec76b696c7d82/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d4865726f6b7526636f6c6f723d343330303938266c6f676f3d4865726f6b75266c6f676f436f6c6f723d464646464646266c6162656c3d)
+	![Github Pages](https://img.shields.io/badge/GitHub%20Pages-%23327FC7.svg?style=for-the-badge&logo=github&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
