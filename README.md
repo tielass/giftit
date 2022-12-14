@@ -6,7 +6,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
     <li><a href="#about-the-project">About The Project</a> </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
     <li><a href="#built-with">Built With</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contributors">Contributing</a></li>
   </ol>
 </details>
 
@@ -21,6 +21,8 @@ the entire process in one application - from choosing the best gift to splitting
 everything in between!
 
 <!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
 Please note that that the app is designed for mobile view. Also, to explore the full functionality of creating an event, the user has to have an account, however, the email can be fake and doesn't need to be verified.
 
 ### Built With
@@ -36,3 +38,13 @@ This section should list any major frameworks/libraries used to bootstrap your p
 	![Github Pages](https://img.shields.io/badge/GitHub%20Pages-%23327FC7.svg?style=for-the-badge&logo=github&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Contributors -->
+## contributors
+<ul>
+	<li><a href="https://github.com/DrAle95/DrAle95">Alexey Lebedev</a></li>
+	<li><a href="https://github.com/EoinFar">Eoin Farren</a></li>
+	<li><a href="https://github.com/tielass">Mihail Mihaylov</a></li>
+	<li><a href="https://github.com/PaulSess">Paul Sessbruegger</a></li>
+</ul>
+	
