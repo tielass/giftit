@@ -53,6 +53,13 @@
                   </div>
                   <% end %>
               </div>
+              <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+              <script>
+                document.getElementsByClassName("btn-giftit")[0].addEventListener("click", () => {
+                confetti();
+                });
+                
+              </script>
               <%# Gift It %>
               <div class="container text-center">
                 <%= link_to "Gift It!", "#", class:"btn-giftit my-5" %>
@@ -116,7 +123,7 @@
         <input data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
         <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn btn-primary", data: {pricebutton_target: "button", action: "click->pricebutton#sendRequest"} %>
 -->
-        <input class="slider my-4", data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="0" max="500" value="<%= @event.price %>" />
+        <input class="slider my-4", data-action="change->pricebutton#updateNumber" data-pricebutton-price-value=value data-pricebutton-target="price"  type="range" id="temp" name="temp" list="tickmarks" min="1" max="500" value="<%= @event.price %>" />
         <%= link_to "Update", event_path(@event, :eventid => @event.id), class: "btn-giftit-small", data: {pricebutton_target: "button", action: "click->pricebutton#sendRequest"} %>
       </div>
 
