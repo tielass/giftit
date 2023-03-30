@@ -53,6 +53,12 @@
                   </div>
                   <% end %>
               </div>
+              <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+              <script>
+                document.getElementsByClassName("btn-giftit")[0].addEventListener("click", () => {
+                confetti();
+                });
+              </script>
               <%# Gift It %>
               <div class="container text-center">
                 <%= link_to "Gift It!", "#", class:"btn-giftit my-5" %>

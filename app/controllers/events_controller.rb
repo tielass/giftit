@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     if target_event.present? && price_range.present?
     @event = Event.find(params[:id])
     # @gifts = Gift.where(category: @event.event_tags.pluck(:name))
-    @gifts =  Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
+    @gifts = Gift.where(category: JSON.parse(@event.hobbies).pluck("value"))
     @wishlistgift = Wishlistgift.where(event_id: @event.id, gift_id: @gifts)
     @event.price = price_range.to_i
     @event.save!
